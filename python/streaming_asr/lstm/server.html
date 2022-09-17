@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Client" href="client.html" />
-    <link rel="prev" title="ConvEmformer transducer based streaming ASR" href="index.html" /> 
+    <link rel="prev" title="LSTM transducer based streaming ASR" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -48,7 +48,9 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">Streaming ASR</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../endpointing.html">Endpointing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../emformer/index.html">Emformer transducer based streaming ASR</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">ConvEmformer transducer based streaming ASR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../conv_emformer/index.html">ConvEmformer transducer based streaming ASR</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../conformer/index.html">Conformer transducer based streaming ASR</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">LSTM transducer based streaming ASR</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Server</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#usage">Usage</a></li>
 </ul>
@@ -56,8 +58,6 @@
 <li class="toctree-l3"><a class="reference internal" href="client.html">Client</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../conformer/index.html">Conformer transducer based streaming ASR</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../lstm/index.html">LSTM transducer based streaming ASR</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../offline_asr/index.html">Non-streaming ASR</a></li>
@@ -84,10 +84,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">Streaming ASR</a> &raquo;</li>
-          <li><a href="index.html">ConvEmformer transducer based streaming ASR</a> &raquo;</li>
+          <li><a href="index.html">LSTM transducer based streaming ASR</a> &raquo;</li>
       <li>Server</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/python/streaming_asr/conv_emformer/server.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/python/streaming_asr/lstm/server.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -96,7 +96,7 @@
            <div itemprop="articleBody">
              
   <section id="server">
-<span id="conv-emformer-server"></span><h1>Server<a class="headerlink" href="#server" title="Permalink to this headline"></a></h1>
+<span id="lstm-server"></span><h1>Server<a class="headerlink" href="#server" title="Permalink to this headline"></a></h1>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Please first refer to <a class="reference internal" href="../../installation/index.html#installation"><span class="std std-ref">Installation</span></a> to install <a class="reference external" href="https://github.com/k2-fsa/sherpa">sherpa</a>
@@ -107,7 +107,7 @@ decoding it, and sending the recognition results back to the client.</p>
 <section id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline"></a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">sherpa</span>
-<span class="o">./</span><span class="n">sherpa</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">conv_emformer_transducer_stateless2</span><span class="o">/</span><span class="n">streaming_server</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
+<span class="o">./</span><span class="n">sherpa</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">lstm_transducer_stateless</span><span class="o">/</span><span class="n">streaming_server</span><span class="o">.</span><span class="n">py</span> <span class="o">--</span><span class="n">help</span>
 </pre></div>
 </div>
 <p>shows the usage message.</p>
@@ -119,9 +119,9 @@ decoding it, and sending the recognition results back to the client.</p>
 </ol>
 </div></blockquote>
 <p>The above two files can be obtained after training your model
-with <a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/conv_emformer_transducer_stateless2">https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/conv_emformer_transducer_stateless2</a>.</p>
+with <a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/lstm_transducer_stateless">https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/lstm_transducer_stateless</a>.</p>
 <p>If you don’t want to train a model by yourself, you can try the
-pretrained model: <a class="reference external" href="https://huggingface.co/Zengwei/icefall-asr-librispeech-conv-emformer-transducer-stateless2-2022-07-05">https://huggingface.co/Zengwei/icefall-asr-librispeech-conv-emformer-transducer-stateless2-2022-07-05</a></p>
+pretrained model: <a class="reference external" href="https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18">https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18</a></p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>You can find pretrained models in <code class="docutils literal notranslate"><span class="pre">RESULTS.md</span></code> for all the recipes in
@@ -133,19 +133,21 @@ found at <a class="reference external" href="https://github.com/k2-fsa/icefall/b
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> /path/to/sherpa
 
 git lfs install
-git clone https://huggingface.co/Zengwei/icefall-asr-librispeech-conv-emformer-transducer-stateless2-2022-07-05
+git clone https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18
 
-./sherpa/bin/conv_emformer_transducer_stateless2/streaming_server.py <span class="se">\</span>
+./sherpa/bin/lstm_transducer_stateless/streaming_server.py <span class="se">\</span>
   --port <span class="m">6007</span> <span class="se">\</span>
   --max-batch-size <span class="m">50</span> <span class="se">\</span>
   --max-wait-ms <span class="m">5</span> <span class="se">\</span>
   --nn-pool-size <span class="m">1</span> <span class="se">\</span>
-  --nn-model-filename ./icefall-asr-librispeech-conv-emformer-transducer-stateless2-2022-07-05/exp/cpu-jit-epoch-30-avg-10-torch-1.10.0.pt <span class="se">\</span>
-  --bpe-model-filename ./icefall-asr-librispeech-conv-emformer-transducer-stateless2-2022-07-05/data/lang_bpe_500/bpe.model
+  --nn-encoder-filename ./icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18/exp/encoder_jit_trace.pt <span class="se">\</span>
+  --nn-decoder-filename ./icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18/exp/decoder_jit_trace.pt <span class="se">\</span>
+  --nn-joiner-filename ./icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18/exp/joiner_jit_trace.pt <span class="se">\</span>
+  --bpe-model-filename ./icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18/data/lang_bpe_500/bpe.model
 </pre></div>
 </div>
 <p>That’s it!</p>
-<p>Now you can start the <a class="reference internal" href="client.html#conv-emformer-client"><span class="std std-ref">Client</span></a>, record your voice in real-time,
+<p>Now you can start the <a class="reference internal" href="client.html#lstm-client"><span class="std std-ref">Client</span></a>, record your voice in real-time,
 and check the recognition results from the server.</p>
 </section>
 </section>
@@ -154,7 +156,7 @@ and check the recognition results from the server.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="ConvEmformer transducer based streaming ASR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="index.html" class="btn btn-neutral float-left" title="LSTM transducer based streaming ASR" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="client.html" class="btn btn-neutral float-right" title="Client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
