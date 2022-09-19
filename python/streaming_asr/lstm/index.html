@@ -19,7 +19,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Server" href="server.html" />
+    <link rel="next" title="Server" href="english/server.html" />
     <link rel="prev" title="Client" href="../conformer/conformer_rnnt_for_English/client.html" /> 
 </head>
 
@@ -51,8 +51,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../conv_emformer/index.html">ConvEmformer transducer based streaming ASR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../conformer/index.html">Conformer transducer based streaming ASR</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">LSTM transducer based streaming ASR</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="server.html">Server</a></li>
-<li class="toctree-l3"><a class="reference internal" href="client.html">Client</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#english">English</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="english/server.html">Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="english/client.html">Client</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#chinese">Chinese</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="chinese/server.html">Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="chinese/client.html">Client</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -98,11 +106,14 @@ ASR with <cite>LSTM</cite> transducer models
 trained with <a class="reference external" href="https://github.com/k2-fsa/icefall">pruned stateless transdcuer</a>.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
-<p>To be specific, the pre-trained model is trained on the <a class="reference external" href="https://www.openslr.org/12">LibriSpeech</a>
+<p>To be specific, the pre-trained model for English is trained on the <a class="reference external" href="https://www.openslr.org/12">LibriSpeech</a>
 dataset using the code from
 <a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/lstm_transducer_stateless">https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/lstm_transducer_stateless</a>.</p>
-<p>The pre-trained model can be downloaded from
+<p>The pre-trained model for English can be downloaded from
 <a class="reference external" href="https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18">https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18</a></p>
+<p>While the pretrained model for Chinese is trained on the <a class="reference external" href="https://github.com/wenet-e2e/WenetSpeech">WenetSpeech</a>
+dataset. The model can be downloaded from
+<a class="reference external" href="https://huggingface.co/csukuangfj/icefall-asr-wenetspeech-lstm-transducer-stateless-2022-09-19">https://huggingface.co/csukuangfj/icefall-asr-wenetspeech-lstm-transducer-stateless-2022-09-19</a></p>
 </div>
 <p>There are no <strong>recurrent</strong> modules in the transducer model:</p>
 <blockquote>
@@ -115,19 +126,37 @@ consisting of an <code class="docutils literal notranslate"><span class="pre">nn
 a <code class="docutils literal notranslate"><span class="pre">tanh</span></code> activation, and a <code class="docutils literal notranslate"><span class="pre">nn.Linear()</span></code>.</p></li>
 </ul>
 </div></blockquote>
-<p>Streaming ASR in this section consists of two components:</p>
+<p>We provide examples for following two languages:</p>
+<section id="english">
+<h2>English<a class="headerlink" href="#english" title="Permalink to this headline"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="server.html">Server</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="server.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="english/server.html">Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="english/server.html#usage">Usage</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="client.html">Client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="client.html#usage">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="english/client.html">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="english/client.html#usage">Usage</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</section>
+<section id="chinese">
+<h2>Chinese<a class="headerlink" href="#chinese" title="Permalink to this headline"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="chinese/server.html">Server</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chinese/server.html#usage">Usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="chinese/client.html">Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="chinese/client.html#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
 </section>
 
 
@@ -135,7 +164,7 @@ a <code class="docutils literal notranslate"><span class="pre">tanh</span></code
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="../conformer/conformer_rnnt_for_English/client.html" class="btn btn-neutral float-left" title="Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="server.html" class="btn btn-neutral float-right" title="Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="english/server.html" class="btn btn-neutral float-right" title="Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

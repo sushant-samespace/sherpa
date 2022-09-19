@@ -19,7 +19,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
-    <link rel="next" title="LSTM transducer based streaming ASR" href="../../lstm/index.html" />
+    <link rel="next" title="Server" href="../chinese/server.html" />
     <link rel="prev" title="Server" href="server.html" /> 
 </head>
 
@@ -49,16 +49,16 @@
 <li class="toctree-l2"><a class="reference internal" href="../../endpointing.html">Endpointing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../emformer/index.html">Emformer transducer based streaming ASR</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../conv_emformer/index.html">ConvEmformer transducer based streaming ASR</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../index.html">Conformer transducer based streaming ASR</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../conformer_rnnt_for_Chinese/index.html">Streaming Chinese ASR</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">Streaming English ASR</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../conformer/index.html">Conformer transducer based streaming ASR</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">LSTM transducer based streaming ASR</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html#english">English</a><ul class="current">
 <li class="toctree-l4"><a class="reference internal" href="server.html">Server</a></li>
 <li class="toctree-l4 current"><a class="current reference internal" href="#">Client</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../index.html#chinese">Chinese</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../../lstm/index.html">LSTM transducer based streaming ASR</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../offline_asr/index.html">Non-streaming ASR</a></li>
@@ -85,11 +85,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">Streaming ASR</a> &raquo;</li>
-          <li><a href="../index.html">Conformer transducer based streaming ASR</a> &raquo;</li>
-          <li><a href="index.html">Streaming English ASR</a> &raquo;</li>
+          <li><a href="../index.html">LSTM transducer based streaming ASR</a> &raquo;</li>
       <li>Client</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/python/streaming_asr/conformer/conformer_rnnt_for_English/client.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/python/streaming_asr/lstm/english/client.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -98,13 +97,13 @@
            <div itemprop="articleBody">
              
   <section id="client">
-<span id="conformer-rnnt-client-english"></span><h1>Client<a class="headerlink" href="#client" title="Permalink to this headline"></a></h1>
+<span id="lstm-client-english"></span><h1>Client<a class="headerlink" href="#client" title="Permalink to this headline"></a></h1>
 <p>With the client you can record your voice in real-time, send it to the
 server, and get the recognition results back from the server.</p>
 <p>We provide a web client for this purpose.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Please first start the <a class="reference internal" href="server.html#conformer-rnnt-server-english"><span class="std std-ref">Server</span></a> before you start the client.</p>
+<p>Please first start the <a class="reference internal" href="server.html#lstm-server-english"><span class="std std-ref">Server</span></a> before you start the client.</p>
 <p>Also, we have hard coded the server port to 6006. Please either pass
 <code class="docutils literal notranslate"><span class="pre">--port</span> <span class="pre">6006</span></code> when starting the server or change the client
 <a class="reference external" href="https://github.com/k2-fsa/sherpa/blob/master/sherpa/bin/web/js/streaming_record.js#L21">https://github.com/k2-fsa/sherpa/blob/master/sherpa/bin/web/js/streaming_record.js#L21</a>
@@ -117,19 +116,19 @@ to use whaterver the port the server is using.</p>
 python3 -m http.server <span class="m">6008</span>
 </pre></div>
 </div>
-<p>Then open your browser, and visit <a class="reference external" href="http://localhost:6008/streaming_record.html">http://localhost:6008/streaming_record.html</a>.</p>
-<p>You will see a UI like the following screenshot. Click the <code class="docutils literal notranslate"><span class="pre">Streaming-Record</span></code> button
+<p>Then open your browser, and visit <a class="reference external" href="http://localhost:6008/record.html">http://localhost:6008/record.html</a>.</p>
+<p>You will see a UI like the following screenshot. Click the <code class="docutils literal notranslate"><span class="pre">Record</span></code> button
 and speak! You should see the recognition results from the server.</p>
-<img alt="Screen shot of the web client user interface" src="../../../../_images/conformer-rnnt-streaming-asr-web-client.jpg" />
+<img alt="Screen shot of the web client user interface" src="../../../../_images/emformer-streaming-asr-web-client.png" />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are unable to click the <code class="docutils literal notranslate"><span class="pre">Streaming-Record</span></code> button, please make sure
+<p>If you are unable to click the <code class="docutils literal notranslate"><span class="pre">Record</span></code> button, please make sure
 the server port is 6006.</p>
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>You have to visit <a class="reference external" href="http://localhost:6008/streaming_record.html">http://localhost:6008/streaming_record.html</a>, not
-<a class="reference external" href="http://0.0.0.0:6008/streaming_record.html">http://0.0.0.0:6008/streaming_record.html</a>. Otherwise, you will not be able
+<p>You have to visit <a class="reference external" href="http://localhost:6008/record.html">http://localhost:6008/record.html</a>, not
+<a class="reference external" href="http://0.0.0.0:6008/record.html">http://0.0.0.0:6008/record.html</a>. Otherwise, you will not be able
 to use the microphone in the browser. One way to avoid this is to use <code class="docutils literal notranslate"><span class="pre">https</span></code>,
 but that needs a certificate.</p>
 </div>
@@ -138,7 +137,7 @@ but that needs a certificate.</p>
 <p>If you are using Chrome, you can right click the page, and then click
 <code class="docutils literal notranslate"><span class="pre">inspect</span></code> in the popup menu, and then click <code class="docutils literal notranslate"><span class="pre">console</span></code>. You will see
 some diagnostic message. This helps you to debug if you are unable to click
-the <code class="docutils literal notranslate"><span class="pre">Streaming-Record</span></code> button.</p>
+the <code class="docutils literal notranslate"><span class="pre">Record</span></code> button.</p>
 </div>
 </section>
 </section>
@@ -148,7 +147,7 @@ the <code class="docutils literal notranslate"><span class="pre">Streaming-Recor
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="server.html" class="btn btn-neutral float-left" title="Server" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../lstm/index.html" class="btn btn-neutral float-right" title="LSTM transducer based streaming ASR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../chinese/server.html" class="btn btn-neutral float-right" title="Server" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
