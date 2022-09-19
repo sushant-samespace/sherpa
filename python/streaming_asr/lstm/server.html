@@ -124,6 +124,11 @@ with <a class="reference external" href="https://github.com/k2-fsa/icefall/tree/
 pretrained model: <a class="reference external" href="https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18">https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18</a></p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
+<p>You can also try the following pretrained model:</p>
+<p><a class="reference external" href="https://huggingface.co/csukuangfj/icefall-asr-librispeech-lstm-transducer-stateless2-2022-09-03">https://huggingface.co/csukuangfj/icefall-asr-librispeech-lstm-transducer-stateless2-2022-09-03</a></p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
 <p>You can find pretrained models in <code class="docutils literal notranslate"><span class="pre">RESULTS.md</span></code> for all the recipes in
 <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
 <p>For instance, the pretrained models for the LibriSpeech dataset can be
@@ -136,6 +141,7 @@ git lfs install
 git clone https://huggingface.co/Zengwei/icefall-asr-librispeech-lstm-transducer-stateless-2022-08-18
 
 ./sherpa/bin/lstm_transducer_stateless/streaming_server.py <span class="se">\</span>
+  --endpoint.rule3.min-utterance-length<span class="o">=</span><span class="m">1000</span>.0 <span class="se">\</span>
   --port <span class="m">6007</span> <span class="se">\</span>
   --max-batch-size <span class="m">50</span> <span class="se">\</span>
   --max-wait-ms <span class="m">5</span> <span class="se">\</span>

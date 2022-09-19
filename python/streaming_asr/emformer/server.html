@@ -136,6 +136,7 @@ git lfs install
 git clone https://huggingface.co/csukuangfj/icefall-asr-librispeech-pruned-stateless-emformer-rnnt2-2022-06-01
 
 ./sherpa/bin/pruned_stateless_emformer_rnnt2/streaming_server.py <span class="se">\</span>
+  --endpoint.rule3.min-utterance-length<span class="o">=</span><span class="m">1000</span>.0 <span class="se">\</span>
   --port <span class="m">6007</span> <span class="se">\</span>
   --max-batch-size <span class="m">50</span> <span class="se">\</span>
   --max-wait-ms <span class="m">5</span> <span class="se">\</span>
