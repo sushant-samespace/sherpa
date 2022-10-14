@@ -98,6 +98,12 @@
              
   <section id="sherpa-onnx">
 <h1>sherpa-onnx<a class="headerlink" href="#sherpa-onnx" title="Permalink to this headline"></a></h1>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>A colab notebook is provided for you so that you can try <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>
+in the browser.</p>
+<p><a class="reference external" href="https://colab.research.google.com/drive/1tmQbdlYeTl_klmtaGiUb7a7ZPz-AkBSH?usp=sharing"><img alt="sherpa-onnx colab notebook" src="https://colab.research.google.com/assets/colab-badge.svg" /></a></p>
+</div>
 <p>We support using <a class="reference external" href="https://github.com/onnx/onnx">onnx</a> with <a class="reference external" href="https://github.com/microsoft/onnxruntime">onnxruntime</a> to replace <a class="reference external" href="https://pytorch.org/">PyTorch</a> for neural
 network computation. The code is put in a separate repository <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
 <p><a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> is self-contained and everything can be compiled from source.</p>
@@ -109,12 +115,12 @@ network computation. The code is put in a separate repository <a class="referenc
 <p>Please refer to
 <a class="reference external" href="https://k2-fsa.github.io/icefall/model-export/export-onnx.html">https://k2-fsa.github.io/icefall/model-export/export-onnx.html</a>
 for how to export models to <a class="reference external" href="https://github.com/onnx/onnx">onnx</a> format.</p>
-<p>In the following, we describe how to build <code class="docutils literal notranslate"><span class="pre">sherpa-onnx</span></code> on Linux, macOS,
+<p>In the following, we describe how to build <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> on Linux, macOS,
 and Windows. Also, we show how to use it for speech recognition with
 pretrained models.</p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>We only provide non-streaming conformer transducer support at present.
+<p>We only provide support for non-streaming conformer transducer at present.
 The work for streaming ASR is still on-going.</p>
 </div>
 <section id="build-sherpa-onnx-for-linux-and-macos">
@@ -128,6 +134,11 @@ make -j6
 </pre></div>
 </div>
 <p>It will generate a binary <code class="docutils literal notranslate"><span class="pre">sherpa-onnx</span></code> inside <code class="docutils literal notranslate"><span class="pre">./build/bin/</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please read below to see how to use the generated binary for speech
+recognition with pretrained models.</p>
+</div>
 </section>
 <section id="build-sherpa-onnx-for-windows">
 <h2>Build sherpa-onnx for Windows<a class="headerlink" href="#build-sherpa-onnx-for-windows" title="Permalink to this headline"></a></h2>
@@ -140,6 +151,11 @@ cmake --build . --config Release
 </pre></div>
 </div>
 <p>It will generate a binary <code class="docutils literal notranslate"><span class="pre">sherpa-onnx.exe</span></code> inside <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please read below to see how to use the generated binary for speech
+recognition with pretrained models.</p>
+</div>
 </section>
 <section id="speech-recognition-with-sherpa-onnx">
 <h2>Speech recognition with sherpa-onnx<a class="headerlink" href="#speech-recognition-with-sherpa-onnx" title="Permalink to this headline"></a></h2>
