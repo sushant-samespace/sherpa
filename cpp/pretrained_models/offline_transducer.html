@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Non-streaming ASR &mdash; sherpa 1.0 documentation</title>
+  <title>Offline transducer models &mdash; sherpa 1.0 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/user.define.css" type="text/css" />
@@ -19,8 +19,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Conformer transducer based non-streaming ASR" href="conformer/index.html" />
-    <link rel="prev" title="Client" href="../streaming_asr/lstm/chinese/client.html" /> 
+    <link rel="next" title="Non-streaming ASR" href="../offline_asr/index.html" />
+    <link rel="prev" title="Offline CTC models" href="offline_ctc.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -42,22 +42,23 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">For Python users</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../huggingface/index.html">Try sherpa with Huggingface</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../streaming_asr/index.html">Streaming ASR</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Non-streaming ASR</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="conformer/index.html">Conformer transducer based non-streaming ASR</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../faq.html">Frequently asked questions</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../python/huggingface/index.html">Try sherpa with Huggingface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/installation/index.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/streaming_asr/index.html">Streaming ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/offline_asr/index.html">Non-streaming ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python/faq.html">Frequently asked questions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">For C++ users</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/installation/index.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/pretrained_models/index.html">Pre-trained models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/offline_asr/index.html">Non-streaming ASR</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../cpp/online_asr/index.html">Streaming ASR</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Pre-trained models</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="offline_ctc.html">Offline CTC models</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Offline transducer models</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../offline_asr/index.html">Non-streaming ASR</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../online_asr/index.html">Streaming ASR</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">ncnn</span></p>
 <ul>
@@ -82,9 +83,10 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Non-streaming ASR</li>
+          <li><a href="index.html">Pre-trained models</a> &raquo;</li>
+      <li>Offline transducer models</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/python/offline_asr/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/cpp/pretrained_models/offline_transducer.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -92,28 +94,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="non-streaming-asr">
-<h1>Non-streaming ASR<a class="headerlink" href="#non-streaming-asr" title="Permalink to this headline"></a></h1>
-<p>This part describes how to use <a class="reference external" href="https://github.com/k2-fsa/sherpa">sherpa</a> for non-streaming ASR.</p>
-<p>At present, only non-streaming ASR based on <a class="reference external" href="https://arxiv.org/abs/2005.08100">Conformer</a>
-<a class="reference external" href="https://arxiv.org/pdf/1211.3711.pdf">transducer</a> (i.e., Conformer-T) is implemented.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="conformer/index.html">Conformer transducer based non-streaming ASR</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="conformer/aishell.html">aishell demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="conformer/librispeech.html">LibriSpeech demo</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section id="offline-transducer-models">
+<h1>Offline transducer models<a class="headerlink" href="#offline-transducer-models" title="Permalink to this headline"></a></h1>
+<p>TODO</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../streaming_asr/lstm/chinese/client.html" class="btn btn-neutral float-left" title="Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="conformer/index.html" class="btn btn-neutral float-right" title="Conformer transducer based non-streaming ASR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="offline_ctc.html" class="btn btn-neutral float-left" title="Offline CTC models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../offline_asr/index.html" class="btn btn-neutral float-right" title="Non-streaming ASR" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
