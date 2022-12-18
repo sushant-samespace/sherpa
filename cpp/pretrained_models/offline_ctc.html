@@ -245,6 +245,35 @@ sherpa-offline <span class="se">\</span>
 </section>
 <section id="icefall-asr-librispeech-conformer-ctc">
 <h4>icefall_asr_librispeech_conformer_ctc<a class="headerlink" href="#icefall-asr-librispeech-conformer-ctc" title="Permalink to this headline"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using LibriSpeech</span>
+<span class="c1">#</span>
+<span class="c1"># See https://github.com/k2-fsa/icefall/pull/13</span>
+<span class="c1">#</span>
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span> git clone https://huggingface.co/pkufool/icefall_asr_librispeech_conformer_ctc
+<span class="nb">cd</span> icefall_asr_librispeech_conformer_ctc
+
+git lfs pull --include <span class="s2">&quot;exp/cpu_jit.pt&quot;</span>
+git lfs pull --include <span class="s2">&quot;data/lang_bpe/HLG.pt&quot;</span>
+
+<span class="c1"># Decode with H</span>
+sherpa-offline <span class="se">\</span>
+  --nn-model<span class="o">=</span>./exp/cpu_jit.pt <span class="se">\</span>
+  --tokens<span class="o">=</span>./data/lang_bpe/tokens.txt <span class="se">\</span>
+  ./test_wavs/1089-134686-0001.wav <span class="se">\</span>
+  ./test_wavs/1221-135766-0001.wav <span class="se">\</span>
+  ./test_wavs/1221-135766-0002.wav
+
+<span class="c1"># Decode with HLG</span>
+sherpa-offline <span class="se">\</span>
+  --nn-model<span class="o">=</span>./exp/cpu_jit.pt <span class="se">\</span>
+  --hlg<span class="o">=</span>./data/lang_bpe/HLG.pt <span class="se">\</span>
+  --tokens<span class="o">=</span>./data/lang_bpe/tokens.txt <span class="se">\</span>
+  ./test_wavs/1089-134686-0001.wav <span class="se">\</span>
+  ./test_wavs/1221-135766-0001.wav <span class="se">\</span>
+  ./test_wavs/1221-135766-0002.wav
+</pre></div>
+</div>
 </section>
 </section>
 <section id="chinese">
