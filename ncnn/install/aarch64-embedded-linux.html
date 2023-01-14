@@ -120,7 +120,7 @@
 <p>This page describes how to build <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a> for embedded Linux (aarch64, 64-bit)
 with cross-compiling on an x86 machine with Ubuntu OS.</p>
 <section id="install-toolchain">
-<h2>Install toolchain<a class="headerlink" href="#install-toolchain" title="Permalink to this headline"></a></h2>
+<span id="sherpa-ncnn-install-for-aarch64-embedded-linux"></span><h2>Install toolchain<a class="headerlink" href="#install-toolchain" title="Permalink to this headline"></a></h2>
 <p>The first step is to install a toolchain for cross-compiling.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -165,7 +165,7 @@ run:</p>
 ./build-aarch64-linux-gnu.sh
 </pre></div>
 </div>
-<p>After building, you will get two binaries:</p>
+<p>After building, you will get three binaries:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>build-aarch64-linux-gnu/install/bin/
 total<span class="w"> </span>10M
 -rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span><span class="m">3</span>.4M<span class="w"> </span>Jan<span class="w"> </span><span class="m">13</span><span class="w"> </span><span class="m">21</span>:16<span class="w"> </span>sherpa-ncnn
@@ -210,7 +210,8 @@ card<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>UAC
 </div></blockquote>
 <p>In this case, I only have 1 microphone. It is <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">3</span></code> and that card
 has only <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code>. To select <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code> on that card,
-we need to pass <code class="docutils literal notranslate"><span class="pre">hw:3,0</span></code> to <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-alsa</span></code>.</p>
+we need to pass <code class="docutils literal notranslate"><span class="pre">hw:3,0</span></code> to <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-alsa</span></code>. (Note: It has the format
+<code class="docutils literal notranslate"><span class="pre">hw:card_number:device_index</span></code>.)</p>
 <p>For instance, you have to use</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./bin/sherpa-ncnn-alsa<span class="w"> </span><span class="se">\</span>
@@ -249,6 +250,19 @@ they depend only on system libraries.</p>
 
 Dynamic section at offset 0x302a80 contains 30 entries:
   Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libgomp.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libm.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libgcc_s.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000f (RPATH)              Library rpath: [$ORIGIN]
+
+$ readelf -d build-aarch64-linux-gnu/install/bin/sherpa-ncnn-alsa
+
+Dynamic section at offset 0x34ea48 contains 31 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libasound.so.2]
  0x0000000000000001 (NEEDED)             Shared library: [libgomp.so.1]
  0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
  0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
