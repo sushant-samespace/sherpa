@@ -211,7 +211,7 @@ card<span class="w"> </span><span class="m">0</span>:<span class="w"> </span>Aud
 <p>In this case, I only have 1 microphone. It is <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">0</span></code> and that card
 has only <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code>. To select <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code> on that card,
 we need to pass <code class="docutils literal notranslate"><span class="pre">hw:0,0</span></code> to <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-alsa</span></code>. (Note: It has the format
-<code class="docutils literal notranslate"><span class="pre">hw:card_number:device_index</span></code>.)</p>
+<code class="docutils literal notranslate"><span class="pre">hw:card_number,device_index</span></code>.)</p>
 <p>For instance, you have to use</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Note: We use int8 models for encoder and joiner below.</span>
