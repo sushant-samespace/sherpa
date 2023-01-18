@@ -170,7 +170,6 @@ run:</p>
 total<span class="w"> </span><span class="m">6</span>.6M
 -rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span><span class="m">2</span>.2M<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">21</span>:46<span class="w"> </span>sherpa-ncnn
 -rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span><span class="m">2</span>.2M<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">21</span>:46<span class="w"> </span>sherpa-ncnn-alsa
--rwxr-xr-x<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span><span class="m">2</span>.2M<span class="w"> </span>Jan<span class="w"> </span><span class="m">14</span><span class="w"> </span><span class="m">21</span>:46<span class="w"> </span>sherpa-ncnn-microphone
 </pre></div>
 </div>
 <p>That’s it!</p>
@@ -180,8 +179,6 @@ total<span class="w"> </span><span class="m">6</span>.6M
 <li><p><code class="docutils literal notranslate"><span class="pre">sherpa-ncnn</span></code> is for decoding a single file</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-alsa</span></code> is for real-time speech recongition by reading
 the microphone with <a class="reference external" href="https://en.wikipedia.org/wiki/Advanced_Linux_Sound_Architecture">ALSA</a></p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> is for real-time speech recongition by reading
-the microphone with <code class="docutils literal notranslate"><span class="pre">portaudio</span></code>.</p></li>
 </ul>
 </div>
 <div class="admonition caution">
@@ -258,17 +255,6 @@ Dynamic section at offset 0x22ded8 contains 32 entries:
   Tag        Type                         Name/Value
  0x00000001 (NEEDED)                     Shared library: [libasound.so.2]
  0x00000001 (NEEDED)                     Shared library: [libgomp.so.1]
- 0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
- 0x00000001 (NEEDED)                     Shared library: [libstdc++.so.6]
- 0x00000001 (NEEDED)                     Shared library: [libm.so.6]
- 0x00000001 (NEEDED)                     Shared library: [libgcc_s.so.1]
- 0x00000001 (NEEDED)                     Shared library: [libc.so.6]
- 0x0000000f (RPATH)                      Library rpath: [$ORIGIN]
-
-$ readelf -d build-arm-linux-gnueabihf/install/bin/sherpa-ncnn-microphone
-
-Dynamic section at offset 0x1cbee8 contains 30 entries:
-  Tag        Type                         Name/Value
  0x00000001 (NEEDED)                     Shared library: [libpthread.so.0]
  0x00000001 (NEEDED)                     Shared library: [libstdc++.so.6]
  0x00000001 (NEEDED)                     Shared library: [libm.so.6]
