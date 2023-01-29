@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Android &mdash; sherpa 1.1 documentation</title>
+  <title>iOS &mdash; sherpa 1.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/user.define.css" type="text/css" />
@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Video demos" href="demo-videos.html" />
-    <link rel="prev" title="Endpointing" href="../endpoint.html" /> 
+    <link rel="prev" title="Build sherpa-ncnn for Android" href="../android/build-sherpa-ncnn.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -60,12 +60,13 @@
 <li class="toctree-l2"><a class="reference internal" href="../install/index.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/index.html">Python API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../endpoint.html">Endpointing</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Android</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../android/index.html">Android</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">iOS</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="demo-videos.html">Video demos</a></li>
-<li class="toctree-l3"><a class="reference internal" href="build-sherpa-ncnn.html">Build sherpa-ncnn for Android</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build-sherpa-ncnn-swift.html">Build sherpa-ncnn for iOS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-the-more-curious-swift.html">For the more curious</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../ios/index.html">iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pretrained_models/index.html">Pre-trained models</a></li>
 </ul>
 </li>
@@ -98,9 +99,9 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">sherpa-ncnn</a> &raquo;</li>
-      <li>Android</li>
+      <li>iOS</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/ncnn/android/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/ncnn/ios/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -108,36 +109,54 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="android">
-<span id="sherpa-ncnn-android"></span><h1>Android<a class="headerlink" href="#android" title="Permalink to this headline"></a></h1>
-<p>In this section, we describe how to build an Android app for <code class="docutils literal notranslate"><span class="pre">real-time</span></code> speech
-recognition with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>. We also provide real-time speech recognition
-video demos.</p>
+  <section id="ios">
+<span id="sherpa-ncnn-ios"></span><h1>iOS<a class="headerlink" href="#ios" title="Permalink to this headline"></a></h1>
+<p>In this section, we describe how to build an iOS app for <code class="docutils literal notranslate"><span class="pre">real-time</span></code> speech
+recognition with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a> and run it within a simulator on your Mac,
+run it on you iPhone or iPad.</p>
+<p>We also provide video demos for real-time speech recognition.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>During speech recognition, it does not need to access the Internet.
-Everyting is processed locally on your phone.</p>
+Everyting is processed locally on your iPhone or iPad.</p>
 </div>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="demo-videos.html">Video demos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-1-chinese">Video 1: Chinese</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-2-chinese-english">Video 2: Chinese + English</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-3-chinese-with-background-noise">Video 3: Chinese with background noise</a></li>
-<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-4-chinese-poem-with-background-music">Video 4: Chinese poem with background music</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-1-chinese-english-on-iphone-14-pro-simulator">Video 1: Chinese + English on iPhone 14 Pro (simulator)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo-videos.html#video-2-chinese-english-on-ipad-11-pro-simulator">Video 2: Chinese + English on iPad 11 Pro (simulator)</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="build-sherpa-ncnn.html">Build sherpa-ncnn for Android</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#install-android-studio">Install Android Studio</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#download-sherpa-ncnn">Download sherpa-ncnn</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#install-ndk">Install NDK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#build-sherpa-ncnn-c-code">Build sherpa-ncnn (C++ code)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#download-pre-trained-models">Download pre-trained models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#generate-apk">Generate APK</a></li>
-<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn.html#analyze-the-apk">Analyze the APK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="build-sherpa-ncnn-swift.html">Build sherpa-ncnn for iOS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn-swift.html#requirement">Requirement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn-swift.html#download-sherpa-ncnn">Download sherpa-ncnn</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn-swift.html#build-sherpa-ncnn-in-commandline-c-part">Build sherpa-ncnn (in commandline, C++ Part)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn-swift.html#build-sherpa-ncnn-in-xcode">Build sherpa-ncnn (in Xcode)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="build-sherpa-ncnn-swift.html#run-sherpa-ncnn-on-your-iphone-ipad">Run sherpa-ncnn on your iPhone/iPad</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="for-the-more-curious-swift.html">For the more curious</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="for-the-more-curious-swift.html#files-generated-by-running-build-ios-sh">Files generated by running ./build-ios.sh</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="for-the-more-curious-swift.html#openmp-framework">openmp.framework</a></li>
+<li class="toctree-l3"><a class="reference internal" href="for-the-more-curious-swift.html#sherpa-ncnn-framework">sherpa-ncnn.framework</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="for-the-more-curious-swift.html#how-to-use-files-generated-by-build-ios-sh-in-xcode">How to use files generated by ./build-ios.sh in Xcode</a></li>
 </ul>
 </li>
 </ul>
+</div>
+<p>It will generate a directory <code class="docutils literal notranslate"><span class="pre">$HOME/open-source/sherpa-ncnn/build-ios</span></code>, where
+you can files generated by running <code class="docutils literal notranslate"><span class="pre">./build-ios.sh</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sherpa-ncnn<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w">  </span>build-ios
+total<span class="w"> </span><span class="m">1912</span>
+drwxr-xr-x<span class="w">  </span><span class="m">13</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>416B<span class="w"> </span>Jan<span class="w"> </span><span class="m">29</span><span class="w"> </span><span class="m">14</span>:43<span class="w"> </span>build-arm64
+drwxr-xr-x<span class="w">  </span><span class="m">13</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>416B<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">20</span>:56<span class="w"> </span>build-simulator
+drwxr-xr-x<span class="w">  </span><span class="m">16</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>512B<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">12</span>:53<span class="w"> </span>openmp-11.0.0.src
+-rw-r--r--<span class="w">   </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>952K<span class="w"> </span>Dec<span class="w">  </span><span class="m">8</span><span class="w">  </span><span class="m">2021</span><span class="w"> </span>openmp-11.0.0.src.tar.xz
+drwxr-xr-x<span class="w">   </span><span class="m">6</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>192B<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">20</span>:56<span class="w"> </span>openmp.framework
+drwxr-xr-x<span class="w">   </span><span class="m">6</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>192B<span class="w"> </span>Jan<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">20</span>:56<span class="w"> </span>sherpa-ncnn.framework
+</pre></div>
 </div>
 </section>
 
@@ -145,7 +164,7 @@ Everyting is processed locally on your phone.</p>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../endpoint.html" class="btn btn-neutral float-left" title="Endpointing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../android/build-sherpa-ncnn.html" class="btn btn-neutral float-left" title="Build sherpa-ncnn for Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="demo-videos.html" class="btn btn-neutral float-right" title="Video demos" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
