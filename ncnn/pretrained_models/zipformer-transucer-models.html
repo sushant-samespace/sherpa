@@ -20,7 +20,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="LSTM-transducer-based Models" href="lstm-transducer-models.html" />
-    <link rel="prev" title="Pre-trained models" href="index.html" /> 
+    <link rel="prev" title="Small models" href="small-models.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -63,9 +63,11 @@
 <li class="toctree-l2"><a class="reference internal" href="../android/index.html">Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ios/index.html">iOS</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Pre-trained models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="small-models.html">Small models</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Zipformer-transducer-based Models</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-en-2023-02-13-english">csukuangfj/sherpa-ncnn-streaming-zipformer-en-2023-02-13 (English)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13-bilingual-chinese-english">csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16-bilingual-chinese-english">csukuangfj/sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16 (Bilingual, Chinese + English)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14-japanese">csukuangfj/sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14 (Japanese)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14-japanese">csukuangfj/sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14 (Japanese)</a></li>
 </ul>
@@ -193,7 +195,7 @@ Done!
 Recognition result for ./sherpa-ncnn-streaming-zipformer-en-2023-02-13/test_wavs/1221-135766-0002.wav
  YET THESE THOUGHTS AFFECTED HESTER PRYNNE LESS WITH HOPE THAN APPREHENSION
 Elapsed seconds: 0.569 s
-Real time factor (RTF): 4.825 / 0.569 = 0.118
+Real time factor (RTF): 0.569 / 4.825 = 0.118
 ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-en-2023-02-13/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
 DecoderConfig(method=&quot;modified_beam_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
 wav filename: ./sherpa-ncnn-streaming-zipformer-en-2023-02-13/test_wavs/1221-135766-0002.wav
@@ -203,22 +205,12 @@ Done!
 Recognition result for ./sherpa-ncnn-streaming-zipformer-en-2023-02-13/test_wavs/1221-135766-0002.wav
  YET THESE THOUGHTS AFFECTED HESTER PRYNNE LESS WITH HOPE THAN APPREHENSION
 Elapsed seconds: 0.554 s
-Real time factor (RTF): 4.825 / 0.554 = 0.115
+Real time factor (RTF): 0.554 / 4.825 = 0.115
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
-</div>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>If you use Windows and get encoding issues, please run:</p>
-<blockquote>
-<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CHCP<span class="w"> </span><span class="m">65001</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p>in your commandline.</p>
 </div>
 </section>
 <section id="real-time-speech-recognition-from-a-microphone">
@@ -240,7 +232,7 @@ Real time factor (RTF): 4.825 / 0.554 = 0.115
 </section>
 </section>
 <section id="csukuangfj-sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13-bilingual-chinese-english">
-<h2>csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)<a class="headerlink" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13-bilingual-chinese-english" title="Permalink to this headline"></a></h2>
+<span id="sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13"></span><h2>csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)<a class="headerlink" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13-bilingual-chinese-english" title="Permalink to this headline"></a></h2>
 <p>This model is converted from</p>
 <p><a class="reference external" href="https://huggingface.co/pfluo/k2fsa-zipformer-chinese-english-mixed">https://huggingface.co/pfluo/k2fsa-zipformer-chinese-english-mixed</a></p>
 <p>which supports both Chinese and English. The model is contributed by the community
@@ -300,7 +292,7 @@ Done!
 Recognition result for ./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/test_wavs/1.wav
 这是第一种第二种叫呃与 ALWAYS ALWAYS什么意思啊
 Elapsed seconds: 0.598 s
-Real time factor (RTF): 5.100 / 0.598 = 0.117
+Real time factor (RTF): 0.598 / 5.100 = 0.117
 ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
 DecoderConfig(method=&quot;modified_beam_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
 wav filename: ./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/test_wavs/1.wav
@@ -310,7 +302,7 @@ Done!
 Recognition result for ./sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13/test_wavs/1.wav
 这是第一种第二种叫呃与 ALWAYS ALWAYS什么意思啊
 Elapsed seconds: 0.943 s
-Real time factor (RTF): 5.100 / 0.943 = 0.185
+Real time factor (RTF): 0.943 / 5.100 = 0.185
 </pre></div>
 </div>
 <div class="admonition note">
@@ -346,6 +338,114 @@ Real time factor (RTF): 5.100 / 0.943 = 0.185
 </div>
 </section>
 </section>
+<section id="csukuangfj-sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16-bilingual-chinese-english">
+<span id="sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16"></span><h2>csukuangfj/sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16 (Bilingual, Chinese + English)<a class="headerlink" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16-bilingual-chinese-english" title="Permalink to this headline"></a></h2>
+<p>This model is converted from</p>
+<p><a class="reference external" href="https://huggingface.co/pfluo/k2fsa-zipformer-bilingual-zh-en-t">https://huggingface.co/pfluo/k2fsa-zipformer-bilingual-zh-en-t</a></p>
+<p>which supports both Chinese and English. The model is contributed by the community
+and is trained on tens of thousands of some internal dataset.</p>
+<p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Unlinke <a class="reference internal" href="#sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13"><span class="std std-ref">csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)</span></a>, this
+model is much smaller.</p>
+</div>
+<section id="id4">
+<h3>Download the model<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<p>Please use the following commands to download it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16
+<span class="nb">cd</span><span class="w"> </span>sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.bin&quot;</span>
+</pre></div>
+</div>
+<p>Please check that the file sizes of the pre-trained models are correct. See
+the file sizes of <code class="docutils literal notranslate"><span class="pre">*.bin</span></code> files below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># before running `git lfs pull`</span>
+
+sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>132B<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:18<span class="w"> </span>decoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>133B<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:18<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>132B<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:18<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.bin
+
+sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16<span class="w"> </span>fangjun$<span class="w"> </span>git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.bin&quot;</span>
+
+<span class="c1"># after running `git lfs pull`</span>
+
+sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span><span class="m">6</span>.1M<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:18<span class="w"> </span>decoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>37M<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:19<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span><span class="m">6</span>.9M<span class="w"> </span>Feb<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="m">12</span>:18<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.bin
+</pre></div>
+</div>
+</section>
+<section id="id5">
+<h3>Decode a single wave file<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>It supports decoding only wave files with a single channel and the sampling rate
+should be 16 kHz.</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
+
+<span class="k">for</span><span class="w"> </span>method<span class="w"> </span><span class="k">in</span><span class="w"> </span>greedy_search<span class="w"> </span>modified_beam_search<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>./build/bin/sherpa-ncnn<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/test_wavs/1.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span><span class="nv">$method</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p>You should see the following output:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
+DecoderConfig(method=&quot;greedy_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
+wav filename: ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/test_wavs/1.wav
+wav duration (s): 5.1
+Started!
+Done!
+Recognition result for ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/test_wavs/1.wav
+这是第一种第二种叫呃与 ALWAYS什么意思啊
+ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
+DecoderConfig(method=&quot;modified_beam_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
+wav filename: ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/test_wavs/1.wav
+wav duration (s): 5.1
+Started!
+Done!
+Recognition result for ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/test_wavs/1.wav
+这是第一种第二种叫呃与 ALWAYS什么意思啊
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
+</div>
+</section>
+<section id="id6">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
+
+./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/encoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/decoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16/joiner_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>greedy_search
+</pre></div>
+</div>
+</section>
+</section>
 <section id="csukuangfj-sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14-japanese">
 <h2>csukuangfj/sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14 (Japanese)<a class="headerlink" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14-japanese" title="Permalink to this headline"></a></h2>
 <p>This model is converted from</p>
@@ -354,8 +454,8 @@ Real time factor (RTF): 5.100 / 0.943 = 0.185
 <p>You can find the training code at</p>
 <p><a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/csj/ASR/pruned_transducer_stateless7_streaming">https://github.com/k2-fsa/icefall/tree/master/egs/csj/ASR/pruned_transducer_stateless7_streaming</a></p>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
-<section id="id4">
-<h3>Download the model<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<section id="id7">
+<h3>Download the model<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
@@ -385,8 +485,8 @@ sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14<span class="w"> </span>fang
 </pre></div>
 </div>
 </section>
-<section id="id5">
-<h3>Decode a single wave file<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<section id="id8">
+<h3>Decode a single wave file<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>It supports decoding only wave files with a single channel and the sampling rate
@@ -424,7 +524,7 @@ Recognition result for ./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/te
 けども言語情報と違って連続的に変化するからカテゴライズすることがやや難しいそういった情
 報であります
 Elapsed seconds: 4.186 s
-Real time factor (RTF): 35.172 / 4.186 = 0.119
+Real time factor (RTF): 4.186 / 35.172 = 0.119
 ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
 DecoderConfig(method=&quot;modified_beam_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
 wav filename: ./sherpa-ncnn-streaming-zipformer-ja-fluent-2023-02-14/test_wavs/aps-smp.wav
@@ -457,8 +557,8 @@ Real time factor (RTF): 35.172 / 5.714 = 0.162
 <p>in your commandline.</p>
 </div>
 </section>
-<section id="id6">
-<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<section id="id9">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
 ./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
@@ -483,8 +583,8 @@ Real time factor (RTF): 35.172 / 5.714 = 0.162
 <p>You can find the training code at</p>
 <p><a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/csj/ASR/pruned_transducer_stateless7_streaming">https://github.com/k2-fsa/icefall/tree/master/egs/csj/ASR/pruned_transducer_stateless7_streaming</a></p>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
-<section id="id8">
-<h3>Download the model<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<section id="id11">
+<h3>Download the model<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
@@ -516,8 +616,8 @@ sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14<span class="w"> </span>f
 </pre></div>
 </div>
 </section>
-<section id="id9">
-<h3>Decode a single wave file<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<section id="id12">
+<h3>Decode a single wave file<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>It supports decoding only wave files with a single channel and the sampling rate
@@ -558,7 +658,7 @@ Recognition result for ./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14
 的にはねそのー何とかの横にとかね隣りにとかねそういう意味なんですよでつまり言語からちょ
 っとずれたとこにある情報だけどだけどそのー実際には存在してる情報っていうことですね
 Elapsed seconds: 8.061 s
-Real time factor (RTF): 71.750 / 8.061 = 0.112
+Real time factor (RTF): 8.061 / 71.750 = 0.112
 ModelConfig(encoder_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/encoder_jit_trace-pnnx.ncnn.param&quot;, encoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/encoder_jit_trace-pnnx.ncnn.bin&quot;, decoder_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/decoder_jit_trace-pnnx.ncnn.param&quot;, decoder_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/decoder_jit_trace-pnnx.ncnn.bin&quot;, joiner_param=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/joiner_jit_trace-pnnx.ncnn.param&quot;, joiner_bin=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/joiner_jit_trace-pnnx.ncnn.bin&quot;, tokens=&quot;./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/tokens.txt&quot;, encoder num_threads=2, decoder num_threads=2, joiner num_threads=2)
 DecoderConfig(method=&quot;modified_beam_search&quot;, num_active_paths=4, enable_endpoint=False, endpoint_config=EndpointConfig(rule1=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=2.4, min_utterance_length=0), rule2=EndpointRule(must_contain_nonsilence=True, min_trailing_silence=1.4, min_utterance_length=0), rule3=EndpointRule(must_contain_nonsilence=False, min_trailing_silence=0, min_utterance_length=20)))
 wav filename: ./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14/test_wavs/interview_aps-smp.wav
@@ -576,7 +676,7 @@ Recognition result for ./sherpa-ncnn-streaming-zipformer-ja-disfluent-2023-02-14
 的にはねそのー何とかの横にとかね隣りにとかねそういう意味なんですよでつまり言語からちょ
 っとずれたとこにある情報だけどだけどそのー実際には存在してる情報っていうことですね
 Elapsed seconds: 11.036 s
-Real time factor (RTF): 71.750 / 11.036 = 0.154
+Real time factor (RTF): 11.036 / 71.750 = 0.154
 </pre></div>
 </div>
 <div class="admonition note">
@@ -594,8 +694,8 @@ Real time factor (RTF): 71.750 / 11.036 = 0.154
 <p>in your commandline.</p>
 </div>
 </section>
-<section id="id10">
-<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<section id="id13">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
 ./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
@@ -618,7 +718,7 @@ Real time factor (RTF): 71.750 / 11.036 = 0.154
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Pre-trained models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="small-models.html" class="btn btn-neutral float-left" title="Small models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="lstm-transducer-models.html" class="btn btn-neutral float-right" title="LSTM-transducer-based Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
