@@ -63,7 +63,13 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">sherpa-onnx</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../install/index.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Python</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Install the Python Package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Install the Python Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#method-1-from-pre-compiled-wheels">Method 1 (From pre-compiled wheels)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#method-2-from-source">Method 2 (From source)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#method-3-for-developers">Method 3 (For developers)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#check-your-installation">Check your installation</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../pretrained_models/index.html">Pre-trained models</a></li>
@@ -107,9 +113,39 @@
              
   <section id="install-the-python-package">
 <h1>Install the Python Package<a class="headerlink" href="#install-the-python-package" title="Permalink to this headline"></a></h1>
+<p>You can select one of the following methods to install the Python package.</p>
+<section id="method-1-from-pre-compiled-wheels">
+<h2>Method 1 (From pre-compiled wheels)<a class="headerlink" href="#method-1-from-pre-compiled-wheels" title="Permalink to this headline"></a></h2>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This method supports only <code class="docutils literal notranslate"><span class="pre">x86_64</span></code> machines.</p>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>sherpa-onnx
 </pre></div>
 </div>
+</section>
+<section id="method-2-from-source">
+<h2>Method 2 (From source)<a class="headerlink" href="#method-2-from-source" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx
+<span class="nb">cd</span><span class="w"> </span>sherpa-onnx
+python3<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+</section>
+<section id="method-3-for-developers">
+<h2>Method 3 (For developers)<a class="headerlink" href="#method-3-for-developers" title="Permalink to this headline"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx
+<span class="nb">cd</span><span class="w"> </span>sherpa-onnx
+mkdir<span class="w"> </span>build
+<span class="nb">cd</span><span class="w"> </span>build
+cmake<span class="w"> </span>-DSHERPA_ONNX_ENABLE_PYTHON<span class="o">=</span>ON<span class="w"> </span>..
+make<span class="w"> </span>-j
+<span class="nb">export</span><span class="w"> </span><span class="nv">PYTHONPATH</span><span class="o">=</span><span class="nv">$PWD</span>/../sherpa-onnx/python/:<span class="nv">$PWD</span>/lib:<span class="nv">$PYTHONPATH</span>
+</pre></div>
+</div>
+</section>
+<section id="check-your-installation">
+<h2>Check your installation<a class="headerlink" href="#check-your-installation" title="Permalink to this headline"></a></h2>
 <p>To check that <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> has been successfully installed, please use:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sherpa_onnx; print(sherpa_onnx.__file__)&quot;</span>
 </pre></div>
@@ -123,6 +159,9 @@
 <div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/tree/master/python-api-examples">https://github.com/k2-fsa/sherpa-onnx/tree/master/python-api-examples</a></p>
 </div></blockquote>
 <p>for usages.</p>
+<p>Please refer to <a class="reference internal" href="../pretrained_models/index.html#sherpa-onnx-pre-trained-models"><span class="std std-ref">Pre-trained models</span></a> for a list of pre-trained
+models.</p>
+</section>
 </section>
 
 
