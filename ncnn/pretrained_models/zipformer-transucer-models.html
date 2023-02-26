@@ -216,6 +216,39 @@ Real time factor (RTF): 0.592 / 4.524 = 0.131
 <p class="admonition-title">Note</p>
 <p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
 </div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>If you use Windows and get encoding issues, please run:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>CHCP<span class="w"> </span><span class="m">65001</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>in your commandline.</p>
+</div>
+</section>
+<section id="real-time-speech-recognition-from-a-microphone">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#real-time-speech-recognition-from-a-microphone" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
+
+./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/encoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/decoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-zh-14M-2023-02-23/joiner_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>greedy_search
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your system is Linux (including embedded Linux), you can also use
+<a class="reference internal" href="../install/aarch64-embedded-linux.html#sherpa-ncnn-alsa"><span class="std std-ref">sherpa-ncnn-alsa</span></a> to do real-time speech recognition with your
+microphone if <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> does not work for you.</p>
+</div>
 </section>
 </section>
 <section id="marcoyang-sherpa-ncnn-streaming-zipformer-20m-2023-02-17-english">
@@ -291,6 +324,29 @@ Real time factor (RTF): 0.472 / 6.625 = 0.071
 <p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
 </div>
 </section>
+<section id="id4">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
+
+./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/encoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/encoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/decoder_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/decoder_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/joiner_jit_trace-pnnx.ncnn.param<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./sherpa-ncnn-streaming-zipformer-20M-2023-02-17/joiner_jit_trace-pnnx.ncnn.bin<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>greedy_search
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your system is Linux (including embedded Linux), you can also use
+<a class="reference internal" href="../install/aarch64-embedded-linux.html#sherpa-ncnn-alsa"><span class="std std-ref">sherpa-ncnn-alsa</span></a> to do real-time speech recognition with your
+microphone if <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> does not work for you.</p>
+</div>
+</section>
 </section>
 <section id="csukuangfj-sherpa-ncnn-streaming-zipformer-en-2023-02-13-english">
 <h2>csukuangfj/sherpa-ncnn-streaming-zipformer-en-2023-02-13 (English)<a class="headerlink" href="#csukuangfj-sherpa-ncnn-streaming-zipformer-en-2023-02-13-english" title="Permalink to this headline"></a></h2>
@@ -300,8 +356,8 @@ Real time factor (RTF): 0.472 / 6.625 = 0.071
 <p>You can find the training code at</p>
 <p><a class="reference external" href="https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/pruned_transducer_stateless7_streaming">https://github.com/k2-fsa/icefall/tree/master/egs/librispeech/ASR/pruned_transducer_stateless7_streaming</a></p>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
-<section id="id5">
-<h3>Download the model<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<section id="id6">
+<h3>Download the model<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
@@ -333,8 +389,8 @@ sherpa-ncnn-streaming-zipformer-en-2023-02-13<span class="w"> </span>fangjun$<sp
 </pre></div>
 </div>
 </section>
-<section id="id6">
-<h3>Decode a single wave file<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<section id="id7">
+<h3>Decode a single wave file<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>It supports decoding only wave files with a single channel and the sampling rate
@@ -385,8 +441,8 @@ Real time factor (RTF): 0.554 / 4.825 = 0.115
 <p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
 </div>
 </section>
-<section id="real-time-speech-recognition-from-a-microphone">
-<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#real-time-speech-recognition-from-a-microphone" title="Permalink to this headline"></a></h3>
+<section id="id8">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
 ./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
@@ -401,6 +457,12 @@ Real time factor (RTF): 0.554 / 4.825 = 0.115
 <span class="w">  </span>greedy_search
 </pre></div>
 </div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your system is Linux (including embedded Linux), you can also use
+<a class="reference internal" href="../install/aarch64-embedded-linux.html#sherpa-ncnn-alsa"><span class="std std-ref">sherpa-ncnn-alsa</span></a> to do real-time speech recognition with your
+microphone if <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> does not work for you.</p>
+</div>
 </section>
 </section>
 <section id="csukuangfj-sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13-bilingual-chinese-english">
@@ -410,8 +472,8 @@ Real time factor (RTF): 0.554 / 4.825 = 0.115
 <p>which supports both Chinese and English. The model is contributed by the community
 and is trained on tens of thousands of some internal dataset.</p>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
-<section id="id7">
-<h3>Download the model<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
+<section id="id9">
+<h3>Download the model<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
@@ -430,8 +492,8 @@ the file sizes of <code class="docutils literal notranslate"><span class="pre">*
 </pre></div>
 </div>
 </section>
-<section id="id8">
-<h3>Decode a single wave file<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<section id="id10">
+<h3>Decode a single wave file<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>It supports decoding only wave files with a single channel and the sampling rate
@@ -492,8 +554,8 @@ Real time factor (RTF): 0.943 / 5.100 = 0.185
 <p>in your commandline.</p>
 </div>
 </section>
-<section id="id9">
-<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<section id="id11">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
 ./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
@@ -508,6 +570,12 @@ Real time factor (RTF): 0.943 / 5.100 = 0.185
 <span class="w">  </span>greedy_search
 </pre></div>
 </div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your system is Linux (including embedded Linux), you can also use
+<a class="reference internal" href="../install/aarch64-embedded-linux.html#sherpa-ncnn-alsa"><span class="std std-ref">sherpa-ncnn-alsa</span></a> to do real-time speech recognition with your
+microphone if <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> does not work for you.</p>
+</div>
 </section>
 </section>
 <section id="csukuangfj-sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16-bilingual-chinese-english">
@@ -519,11 +587,11 @@ and is trained on tens of thousands of some internal dataset.</p>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Unlinke <a class="reference internal" href="#sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13"><span class="std std-ref">csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)</span></a>, this
+<p>Unlike <a class="reference internal" href="#sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13"><span class="std std-ref">csukuangfj/sherpa-ncnn-streaming-zipformer-bilingual-zh-en-2023-02-13 (Bilingual, Chinese + English)</span></a>, this
 model is much smaller.</p>
 </div>
-<section id="id10">
-<h3>Download the model<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<section id="id12">
+<h3>Download the model<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
@@ -552,8 +620,8 @@ sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16<span class="w">
 </pre></div>
 </div>
 </section>
-<section id="id11">
-<h3>Decode a single wave file<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
+<section id="id13">
+<h3>Decode a single wave file<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>It supports decoding only wave files with a single channel and the sampling rate
@@ -600,8 +668,8 @@ Recognition result for ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2
 <p>Please use <code class="docutils literal notranslate"><span class="pre">./build/bin/Release/sherpa-ncnn.exe</span></code> for Windows.</p>
 </div>
 </section>
-<section id="id12">
-<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
+<section id="id14">
+<h3>Real-time speech recognition from a microphone<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-ncnn
 
 ./build/bin/sherpa-ncnn-microphone<span class="w"> </span><span class="se">\</span>
@@ -615,6 +683,12 @@ Recognition result for ./sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2
 <span class="w">  </span><span class="m">2</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>greedy_search
 </pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If your system is Linux (including embedded Linux), you can also use
+<a class="reference internal" href="../install/aarch64-embedded-linux.html#sherpa-ncnn-alsa"><span class="std std-ref">sherpa-ncnn-alsa</span></a> to do real-time speech recognition with your
+microphone if <code class="docutils literal notranslate"><span class="pre">sherpa-ncnn-microphone</span></code> does not work for you.</p>
 </div>
 </section>
 <section id="a-faster-model-of-sherpa-ncnn-streaming-zipformer-small-bilingual-zh-en-2023-02-16">
