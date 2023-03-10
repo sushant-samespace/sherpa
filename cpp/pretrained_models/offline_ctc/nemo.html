@@ -62,6 +62,9 @@
 <li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-zh-citrinet-512-chinese">sherpa-nemo-ctc-zh-citrinet-512 (Chinese)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-zh-citrinet-1024-gamma-0-25-chinese">sherpa-nemo-ctc-zh-citrinet-1024-gamma-0-25 (Chinese)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-de-citrinet-1024-german">sherpa-nemo-ctc-de-citrinet-1024 (German)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-en-conformer-small-english">sherpa-nemo-ctc-en-conformer-small (English)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-en-conformer-medium-english">sherpa-nemo-ctc-en-conformer-medium (English)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sherpa-nemo-ctc-en-conformer-large-english">sherpa-nemo-ctc-en-conformer-large (English)</a></li>
 </ul>
 </li>
 </ul>
@@ -138,6 +141,10 @@ sherpa-offline<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/2.wav
 </pre></div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span>142M<span class="w"> </span>Mar<span class="w">  </span><span class="m">9</span><span class="w"> </span><span class="m">21</span>:23<span class="w"> </span>model.pt
+</pre></div>
+</div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
 <p>It is of paramount importance to specify <code class="docutils literal notranslate"><span class="pre">--nemo-normalize=per_feature</span></code>.</p>
@@ -162,6 +169,10 @@ sherpa-offline<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/0.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/1.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/2.wav
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span>153M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">15</span>:07<span class="w"> </span>model.pt
 </pre></div>
 </div>
 <div class="admonition hint">
@@ -196,6 +207,10 @@ sherpa-offline<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/2.wav
 </pre></div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span>557M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">16</span>:29<span class="w"> </span>model.pt
+</pre></div>
+</div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>Since the vocabulary size of this model is very large, i.e, 5207, we use
@@ -226,6 +241,104 @@ sherpa-offline<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/0.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/1.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">   </span>./test_wavs/2.wav
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>kuangfangjun<span class="w"> </span>root<span class="w"> </span>541M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">16</span>:55<span class="w"> </span>model.pt
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It is of paramount importance to specify <code class="docutils literal notranslate"><span class="pre">--nemo-normalize=per_feature</span></code>.</p>
+</div>
+</section>
+<section id="sherpa-nemo-ctc-en-conformer-small-english">
+<h2>sherpa-nemo-ctc-en-conformer-small (English)<a class="headerlink" href="#sherpa-nemo-ctc-en-conformer-small-english" title="Permalink to this headline"></a></h2>
+<p>This model is converted from</p>
+<blockquote>
+<div><p><a class="reference external" href="https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_small">https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_small</a></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="mi">1</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">huggingface</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">csukuangfj</span><span class="o">/</span><span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">small</span>
+<span class="n">cd</span> <span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">small</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">pull</span> <span class="o">--</span><span class="n">include</span> <span class="s2">&quot;model.pt&quot;</span>
+
+<span class="n">sherpa</span><span class="o">-</span><span class="n">offline</span> \
+   <span class="o">--</span><span class="n">nn</span><span class="o">-</span><span class="n">model</span><span class="o">=./</span><span class="n">model</span><span class="o">.</span><span class="n">pt</span> \
+   <span class="o">--</span><span class="n">tokens</span><span class="o">=./</span><span class="n">tokens</span><span class="o">.</span><span class="n">txt</span> \
+   <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">gpu</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">modified</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">nemo</span><span class="o">-</span><span class="n">normalize</span><span class="o">=</span><span class="n">per_feature</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">0.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">1.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">2.</span><span class="n">wav</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>82M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">19</span>:55<span class="w"> </span>model.pt
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It is of paramount importance to specify <code class="docutils literal notranslate"><span class="pre">--nemo-normalize=per_feature</span></code>.</p>
+</div>
+</section>
+<section id="sherpa-nemo-ctc-en-conformer-medium-english">
+<h2>sherpa-nemo-ctc-en-conformer-medium (English)<a class="headerlink" href="#sherpa-nemo-ctc-en-conformer-medium-english" title="Permalink to this headline"></a></h2>
+<p>This model is converted from</p>
+<blockquote>
+<div><p><a class="reference external" href="https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_medium">https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_medium</a></p>
+</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="mi">1</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">huggingface</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">csukuangfj</span><span class="o">/</span><span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">medium</span>
+<span class="n">cd</span> <span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">medium</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">pull</span> <span class="o">--</span><span class="n">include</span> <span class="s2">&quot;model.pt&quot;</span>
+
+<span class="n">sherpa</span><span class="o">-</span><span class="n">offline</span> \
+   <span class="o">--</span><span class="n">nn</span><span class="o">-</span><span class="n">model</span><span class="o">=./</span><span class="n">model</span><span class="o">.</span><span class="n">pt</span> \
+   <span class="o">--</span><span class="n">tokens</span><span class="o">=./</span><span class="n">tokens</span><span class="o">.</span><span class="n">txt</span> \
+   <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">gpu</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">modified</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">nemo</span><span class="o">-</span><span class="n">normalize</span><span class="o">=</span><span class="n">per_feature</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">0.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">1.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">2.</span><span class="n">wav</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>152M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span>:26<span class="w"> </span>model.pt
+</pre></div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It is of paramount importance to specify <code class="docutils literal notranslate"><span class="pre">--nemo-normalize=per_feature</span></code>.</p>
+</div>
+</section>
+<section id="sherpa-nemo-ctc-en-conformer-large-english">
+<h2>sherpa-nemo-ctc-en-conformer-large (English)<a class="headerlink" href="#sherpa-nemo-ctc-en-conformer-large-english" title="Permalink to this headline"></a></h2>
+<p>This model is converted from</p>
+<blockquote>
+<div><p><a class="reference external" href="https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_large">https://registry.ngc.nvidia.com/orgs/nvidia/teams/nemo/models/stt_en_conformer_ctc_large</a></p>
+</div></blockquote>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The vocabulary size is 129</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="mi">1</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">huggingface</span><span class="o">.</span><span class="n">co</span><span class="o">/</span><span class="n">csukuangfj</span><span class="o">/</span><span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">large</span>
+<span class="n">cd</span> <span class="n">sherpa</span><span class="o">-</span><span class="n">nemo</span><span class="o">-</span><span class="n">ctc</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">conformer</span><span class="o">-</span><span class="n">large</span>
+<span class="n">git</span> <span class="n">lfs</span> <span class="n">pull</span> <span class="o">--</span><span class="n">include</span> <span class="s2">&quot;model.pt&quot;</span>
+
+<span class="n">sherpa</span><span class="o">-</span><span class="n">offline</span> \
+   <span class="o">--</span><span class="n">nn</span><span class="o">-</span><span class="n">model</span><span class="o">=./</span><span class="n">model</span><span class="o">.</span><span class="n">pt</span> \
+   <span class="o">--</span><span class="n">tokens</span><span class="o">=./</span><span class="n">tokens</span><span class="o">.</span><span class="n">txt</span> \
+   <span class="o">--</span><span class="n">use</span><span class="o">-</span><span class="n">gpu</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">modified</span><span class="o">=</span><span class="n">false</span> \
+   <span class="o">--</span><span class="n">nemo</span><span class="o">-</span><span class="n">normalize</span><span class="o">=</span><span class="n">per_feature</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">0.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">1.</span><span class="n">wav</span> \
+   <span class="o">./</span><span class="n">test_wavs</span><span class="o">/</span><span class="mf">2.</span><span class="n">wav</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>model.pt
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>508M<span class="w"> </span>Mar<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">20</span>:44<span class="w"> </span>model.pt
 </pre></div>
 </div>
 <div class="admonition caution">
