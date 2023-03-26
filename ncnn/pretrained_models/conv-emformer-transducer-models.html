@@ -272,10 +272,21 @@ git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </spa
 </pre></div>
 </div>
 <p>Please check that the file size of the pre-trained models is correct (see the
-screen shot below):</p>
-<figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/2022-12-06-filesize.png"><img alt="File size for sherpa-ncnn-2022-12-06" src="../../_images/2022-12-06-filesize.png" style="width: 800px;" /></a>
-</figure>
+output below):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ls<span class="w"> </span>-lh<span class="w"> </span>*ncnn*<span class="o">{</span>param,bin<span class="o">}</span>
+
+-rw-r--r--@<span class="w"> </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span><span class="m">5</span>.9M<span class="w"> </span>Dec<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">12</span>:06<span class="w"> </span>decoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>439B<span class="w"> </span>Feb<span class="w">  </span><span class="m">3</span><span class="w"> </span><span class="m">20</span>:23<span class="w"> </span>decoder_jit_trace-pnnx.ncnn.param
+-rw-r--r--@<span class="w"> </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>141M<span class="w"> </span>Dec<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">12</span>:06<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>99M<span class="w"> </span>Dec<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">11</span>:03<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.int8.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>78K<span class="w"> </span>Mar<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">10</span>:33<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.int8.param
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>79K<span class="w"> </span>Jan<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="m">21</span>:13<span class="w"> </span>encoder_jit_trace-pnnx.ncnn.param
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span><span class="m">6</span>.9M<span class="w"> </span>Dec<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">12</span>:06<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span><span class="m">3</span>.5M<span class="w"> </span>Dec<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">11</span>:03<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.int8.bin
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>498B<span class="w"> </span>Dec<span class="w"> </span><span class="m">28</span><span class="w"> </span><span class="m">11</span>:02<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.int8.param
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>490B<span class="w"> </span>Dec<span class="w">  </span><span class="m">6</span><span class="w"> </span><span class="m">12</span>:05<span class="w"> </span>joiner_jit_trace-pnnx.ncnn.param
+</pre></div>
+</div>
 <section id="id3">
 <h3>Decode a single wave file with ./build/bin/sherpa-ncnn<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
 <div class="admonition hint">
