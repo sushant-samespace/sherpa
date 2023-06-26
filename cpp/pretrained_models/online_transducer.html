@@ -124,7 +124,7 @@ and <code class="docutils literal notranslate"><span class="pre">sherpa-online-m
 </div>
 <section id="icefall">
 <h2>icefall<a class="headerlink" href="#icefall" title="Permalink to this headline"></a></h2>
-<p>This sections lists models trained using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
+<p>This section lists models trained using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
 <section id="english">
 <h3>English<a class="headerlink" href="#english" title="Permalink to this headline"></a></h3>
 <section id="icefall-asr-librispeech-streaming-zipformer-2023-05-17">
@@ -359,6 +359,41 @@ sherpa-online<span class="w"> </span><span class="se">\</span>
 </section>
 <section id="chinese">
 <h3>Chinese<a class="headerlink" href="#chinese" title="Permalink to this headline"></a></h3>
+<section id="icefall-asr-zipformer-wenetspeech-20230615">
+<h4>icefall-asr-zipformer-wenetspeech-20230615<a class="headerlink" href="#icefall-asr-zipformer-wenetspeech-20230615" title="Permalink to this headline"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using WenetSpeech</span>
+<span class="c1">#</span>
+<span class="c1"># See https://github.com/k2-fsa/icefall/pull/1130</span>
+<span class="c1">#</span>
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/pkufool/icefall-asr-zipformer-streaming-wenetspeech-20230615
+<span class="nb">cd</span><span class="w"> </span>icefall-asr-zipformer-streaming-wenetspeech-20230615
+
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span>exp/jit_script_chunk_16_left_128.pt
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;data/lang_char/LG.pt&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>m<span class="w"> </span><span class="k">in</span><span class="w"> </span>greedy_search<span class="w"> </span>modified_beam_search<span class="w"> </span>fast_beam_search<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>sherpa-online<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--decoding-method<span class="o">=</span><span class="nv">$m</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--nn-model<span class="o">=</span>./exp/jit_script_chunk_16_left_128.pt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tokens<span class="o">=</span>./data/lang_char/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/DEV_T0000000000.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/DEV_T0000000001.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/DEV_T0000000002.wav
+<span class="k">done</span>
+
+<span class="c1"># For fast_beam_search with LG</span>
+
+sherpa-online<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--decoding-method<span class="o">=</span>fast_beam_search<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--nn-model<span class="o">=</span>./exp/jit_script_chunk_16_left_128.pt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--lg<span class="o">=</span>./data/lang_char/LG.pt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tokens<span class="o">=</span>./data/lang_char/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./test_wavs/DEV_T0000000000.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./test_wavs/DEV_T0000000001.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>./test_wavs/DEV_T0000000002.wav
+</pre></div>
+</div>
+</section>
 <section id="icefall-asr-wenetspeech-pruned-transducer-stateless5-streaming">
 <h4>icefall_asr_wenetspeech_pruned_transducer_stateless5_streaming<a class="headerlink" href="#icefall-asr-wenetspeech-pruned-transducer-stateless5-streaming" title="Permalink to this headline"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using WenetSpeech with Conformer transducer</span>

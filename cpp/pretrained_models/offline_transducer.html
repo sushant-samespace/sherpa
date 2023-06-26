@@ -126,7 +126,7 @@ anything.</p>
 </div>
 <section id="icefall">
 <h2>icefall<a class="headerlink" href="#icefall" title="Permalink to this headline"></a></h2>
-<p>This sections lists models trained using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
+<p>This section lists models trained using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
 <section id="english">
 <h3>English<a class="headerlink" href="#english" title="Permalink to this headline"></a></h3>
 <section id="icefall-asr-librispeech-zipformer-2023-05-15">
@@ -435,9 +435,42 @@ done
 </section>
 <section id="chinese">
 <h3>Chinese<a class="headerlink" href="#chinese" title="Permalink to this headline"></a></h3>
+<section id="icefall-asr-zipformer-wenetspeech-20230615">
+<h4>icefall-asr-zipformer-wenetspeech-20230615<a class="headerlink" href="#icefall-asr-zipformer-wenetspeech-20230615" title="Permalink to this headline"></a></h4>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># This model is trained using WenetSpeech
+#
+# See https://github.com/k2-fsa/icefall/pull/1130
+#
+GIT_LFS_SKIP_SMUDGE=1 git clone https://huggingface.co/pkufool/icefall-asr-zipformer-wenetspeech-20230615
+
+cd icefall-asr-zipformer-wenetspeech-20230615
+git lfs pull --include &quot;exp/jit_script.pt&quot;
+git lfs pull --include &quot;data/lang_char/LG.pt&quot;
+
+for m in greedy_search modified_beam_search fast_beam_search; do
+  sherpa-offline \
+    --decoding-method=$m \
+    --nn-model=./exp/jit_script.pt \
+    --tokens=./data/lang_char/tokens.txt \
+    ./test_wavs/DEV_T0000000000.wav \
+    ./test_wavs/DEV_T0000000001.wav \
+    ./test_wavs/DEV_T0000000002.wav
+done
+
+sherpa-offline \
+  --decoding-method=fast_beam_search \
+  --nn-model=./exp/jit_script.pt \
+  --lg=./data/lang_char/LG.pt \
+  --tokens=./data/lang_char/tokens.txt \
+  ./test_wavs/DEV_T0000000000.wav \
+  ./test_wavs/DEV_T0000000001.wav \
+  ./test_wavs/DEV_T0000000002.wav
+</pre></div>
+</div>
+</section>
 <section id="icefall-asr-wenetspeech-pruned-transducer-stateless2">
 <h4>icefall_asr_wenetspeech_pruned_transducer_stateless2<a class="headerlink" href="#icefall-asr-wenetspeech-pruned-transducer-stateless2" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This models is trained using WenetSpeech</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using WenetSpeech</span>
 <span class="c1">#</span>
 <span class="c1"># See https://github.com/k2-fsa/icefall/pull/349</span>
 <span class="c1">#</span>
@@ -461,7 +494,7 @@ ln<span class="w"> </span>-s<span class="w"> </span>cpu_jit_epoch_10_avg_2_torch
 <span class="k">done</span>
 
 sherpa-offline<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--decoding-method<span class="o">=</span><span class="nv">$m</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--decoding-method<span class="o">=</span>fast_beam_search<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--nn-model<span class="o">=</span>./exp/cpu_jit.pt<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--lg<span class="o">=</span>./data/lang_char/LG.pt<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--tokens<span class="o">=</span>./data/lang_char/tokens.txt<span class="w"> </span><span class="se">\</span>
@@ -473,7 +506,7 @@ sherpa-offline<span class="w"> </span><span class="se">\</span>
 </section>
 <section id="icefall-asr-aidatatang-200zh-pruned-transducer-stateless2">
 <h4>icefall_asr_aidatatang-200zh_pruned_transducer_stateless2<a class="headerlink" href="#icefall-asr-aidatatang-200zh-pruned-transducer-stateless2" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This models is trained using aidatatang_200zh</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using aidatatang_200zh</span>
 <span class="c1">#</span>
 <span class="c1"># See https://github.com/k2-fsa/icefall/pull/355</span>
 <span class="c1">#</span>
@@ -499,7 +532,7 @@ ln<span class="w"> </span>-sv<span class="w"> </span>cpu_jit_torch.1.7.1.pt<span
 </section>
 <section id="icefall-asr-alimeeting-pruned-transducer-stateless7">
 <h4>icefall-asr-alimeeting-pruned-transducer-stateless7<a class="headerlink" href="#icefall-asr-alimeeting-pruned-transducer-stateless7" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This models is trained using alimeeting (https://www.openslr.org/119/)</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using alimeeting (https://www.openslr.org/119/)</span>
 <span class="c1">#</span>
 <span class="c1"># See https://github.com/k2-fsa/icefall/pull/751</span>
 <span class="c1">#</span>
@@ -525,7 +558,7 @@ git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </spa
 <h3>Chinese + English<a class="headerlink" href="#chinese-english" title="Permalink to this headline"></a></h3>
 <section id="icefall-asr-tal-csasr-pruned-transducer-stateless5">
 <h4>icefall_asr_tal-csasr_pruned_transducer_stateless5<a class="headerlink" href="#icefall-asr-tal-csasr-pruned-transducer-stateless5" title="Permalink to this headline"></a></h4>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This models is trained using TAL_CSASR dataset from</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using TAL_CSASR dataset from</span>
 <span class="c1"># https://ai.100tal.com/dataset</span>
 <span class="c1"># where each utterance contains both English and Chinese.</span>
 <span class="c1">#</span>
