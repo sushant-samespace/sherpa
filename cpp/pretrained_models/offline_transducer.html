@@ -129,6 +129,29 @@ anything.</p>
 <p>This section lists models trained using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
 <section id="english">
 <h3>English<a class="headerlink" href="#english" title="Permalink to this headline"></a></h3>
+<section id="icefall-asr-cv-corpus-13-0-2023-03-09-en-pruned-transducer-stateless7-2023-04-17">
+<h4>icefall-asr-cv-corpus-13.0-2023-03-09-en-pruned-transducer-stateless7-2023-04-17<a class="headerlink" href="#icefall-asr-cv-corpus-13-0-2023-03-09-en-pruned-transducer-stateless7-2023-04-17" title="Permalink to this headline"></a></h4>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using Common Voice 13.0 with zipformer transducer</span>
+<span class="c1">#</span>
+<span class="c1"># See https://github.com/k2-fsa/icefall/pull/997</span>
+<span class="c1">#</span>
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/yfyeung/icefall-asr-cv-corpus-13.0-2023-03-09-en-pruned-transducer-stateless7-2023-04-17
+<span class="nb">cd</span><span class="w"> </span>icefall-asr-cv-corpus-13.0-2023-03-09-en-pruned-transducer-stateless7-2023-04-17
+
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;cpu_jit-epoch-60-avg-20.pt&quot;</span>
+
+<span class="k">for</span><span class="w"> </span>m<span class="w"> </span><span class="k">in</span><span class="w"> </span>greedy_search<span class="w"> </span>modified_beam_search<span class="w"> </span>fast_beam_search<span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>sherpa-offline<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--decoding-method<span class="o">=</span><span class="nv">$m</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--nn-model<span class="o">=</span>./exp/cpu_jit-epoch-60-avg-20.pt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--tokens<span class="o">=</span>./data/lang_bpe_500/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/1089-134686-0001.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/1221-135766-0001.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>./test_wavs/1221-135766-0002.wav
+<span class="k">done</span>
+</pre></div>
+</div>
+</section>
 <section id="icefall-asr-librispeech-zipformer-2023-05-15">
 <span id="id1"></span><h4>icefall-asr-librispeech-zipformer-2023-05-15<a class="headerlink" href="#icefall-asr-librispeech-zipformer-2023-05-15" title="Permalink to this headline"></a></h4>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># This model is trained using LibriSpeech with zipformer transducer</span>
