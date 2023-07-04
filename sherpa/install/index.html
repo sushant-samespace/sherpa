@@ -46,11 +46,18 @@
 <li class="toctree-l1"><a class="reference internal" href="../../intro.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../social-groups.html">Social groups</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../huggingface/index.html">Run Next-gen Kaldi in your browser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../pretrained-models.html">Pre-trained models</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">k2-fsa/sherpa</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">sherpa</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#normal">Normal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#for-developers-and-advanced-users">For developers and advanced users</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-to-get-help">Where to get help</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../pretrained_models/index.html">Pre-trained models</a></li>
 </ul>
 </li>
@@ -95,13 +102,84 @@
              
   <section id="installation">
 <span id="sherpa-installation"></span><h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline"></a></h2>
 <p>Before installing <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a>, we assume you have installed:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
 <li><p><a class="reference external" href="https://github.com/k2-fsa/k2">k2</a></p></li>
 <li><p><a class="reference external" href="https://csukuangfj.github.io/kaldifeat/installation.html">kaldifeat</a></p></li>
 </ul>
+</section>
+<section id="normal">
+<h2>Normal<a class="headerlink" href="#normal" title="Permalink to this headline"></a></h2>
 <p>You can use the following commands to install <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please make sure you have installed PyTorch, k2, and kaldifeat</span>
+<span class="c1"># before you continue</span>
+<span class="c1">#</span>
+git<span class="w"> </span>clone<span class="w"> </span>http://github.com/k2-fsa/sherpa
+<span class="nb">cd</span><span class="w"> </span>sherpa
+python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>--verbose<span class="w"> </span>.
+</pre></div>
+</div>
+<p>The above commands install the Python package <code class="docutils literal notranslate"><span class="pre">k2-sherpa</span></code> as well as
+generated <code class="docutils literal notranslate"><span class="pre">executables</span></code>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>Please don’t use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">-m</span> <span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--verbose</span> <span class="pre">.</span></code> instead.</p>
+</div>
+<p>To check that you have installed <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a> successfully, please run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Test for Python</span>
+<span class="c1">#</span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sherpa; print(sherpa.__file__)&quot;</span>
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sherpa; print(sherpa.__version__)&quot;</span>
+
+<span class="c1"># Test for generated executables</span>
+<span class="c1">#</span>
+which<span class="w"> </span>sherpa-version
+sherpa-version
+
+which<span class="w"> </span>sherpa-online
+sherpa-online<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-offline
+sherpa-offline<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-online-microphone
+sherpa-online-microphone<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-offline-microphone
+sherpa-offline-microphone<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-online-websocket-server
+sherpa-online-websocket-server<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-online-websocket-client
+sherpa-online-websocket-client<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-online-websocket-client-microphone
+sherpa-online-websocket-client-microphone<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-offline-websocket-server
+sherpa-offline-websocket-server<span class="w"> </span>--help
+
+which<span class="w"> </span>sherpa-offline-websocket-client
+sherpa-offline-websocket-client<span class="w"> </span>--help
+</pre></div>
+</div>
+<p>To uninstall <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a>, please use</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Please run it outside of the k2-fsa/sherpa repo</span>
+<span class="c1">#</span>
+pip<span class="w"> </span>uninstall<span class="w"> </span>k2-sherpa
+</pre></div>
+</div>
+</section>
+<section id="for-developers-and-advanced-users">
+<h2>For developers and advanced users<a class="headerlink" href="#for-developers-and-advanced-users" title="Permalink to this headline"></a></h2>
+<p>You can also use the following commands to install <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a>.</p>
+<p>The advantage is that you can have several versions of <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a>
+in a single environment.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>http://github.com/k2-fsa/sherpa
 <span class="nb">cd</span><span class="w"> </span>sherpa
 mkdir<span class="w"> </span>build
@@ -115,11 +193,17 @@ make<span class="w"> </span>-j
 </div>
 <p>To test that you have installed <a class="reference external" href="http://github.com/k2-fsa/sherpa">k2-fsa/sherpa</a> successfully, you can run the
 following commands:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./bin/sherpa-version
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa/build
+
+python3<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;import sherpa; print(sherpa.__file__)&quot;</span>
+
+./bin/sherpa-version
 
 ./bin/sherpa-offline<span class="w"> </span>--help
 ./bin/sherpa-online<span class="w"> </span>--help
+
 ./bin/sherpa-online-microphone<span class="w"> </span>--help
+./bin/sherpa-offline-microphone<span class="w"> </span>--help
 
 ./bin/sherpa-offline-websocket-server<span class="w"> </span>--help
 ./bin/sherpa-offline-websocket-client<span class="w"> </span>--help
@@ -129,11 +213,15 @@ following commands:</p>
 ./bin/sherpa-online-websocket-client-microphone<span class="w"> </span>--help
 </pre></div>
 </div>
+</section>
+<section id="where-to-get-help">
+<h2>Where to get help<a class="headerlink" href="#where-to-get-help" title="Permalink to this headline"></a></h2>
 <p>If you have any issues about the installation, please create an issue
 at the following address:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa/issues">https://github.com/k2-fsa/sherpa/issues</a></p>
 </div></blockquote>
+</section>
 </section>
 
 
