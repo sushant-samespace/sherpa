@@ -118,7 +118,7 @@
 <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/speech-recognition-from-url.py">code</a>
 for non-streaming models on need.</p>
 </div>
-<p>All types of URLs supported by <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code> are supported by <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
+<p>All types of URLs supported by <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code> are supported.</p>
 <p>The following table lists some example URLs.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -150,7 +150,7 @@ and <code class="docutils literal notranslate"><span class="pre">brew</span> <sp
 for demonstration in the following examples.</p>
 <section id="decode-a-url">
 <h2>Decode a URL<a class="headerlink" href="#decode-a-url" title="Permalink to this headline"></a></h2>
-<p>This example shows you how to decode an URL that pointing to a file.</p>
+<p>This example shows you how to decode a URL pointing to a file.</p>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
 <p>The file does not need to be a WAVE file. It can be a file of any format
@@ -218,7 +218,7 @@ Asan:<span class="w"> </span>Please<span class="w"> </span>setup<span class="w">
 </section>
 <section id="start-ffmpeg-to-push-audio-stream">
 <h3>Start ffmpeg to push audio stream<a class="headerlink" href="#start-ffmpeg-to-push-audio-stream" title="Permalink to this headline"></a></h3>
-<p>First, let us list available recording devices in the current computer
+<p>First, let us list available recording devices on the current computer
 with the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ffmpeg<span class="w"> </span>-hide_banner<span class="w"> </span>-f<span class="w"> </span>avfoundation<span class="w"> </span>-list_devices<span class="w"> </span><span class="nb">true</span><span class="w"> </span>-i<span class="w"> </span><span class="s2">&quot;&quot;</span>
 </pre></div>
