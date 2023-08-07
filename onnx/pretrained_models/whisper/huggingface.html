@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Offline CTC models &mdash; sherpa 1.3 documentation</title>
+  <title>Huggingface space &mdash; sherpa 1.3 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="NeMo" href="nemo/index.html" />
-    <link rel="prev" title="Paraformer models" href="../offline-paraformer/paraformer-models.html" /> 
+    <link rel="next" title="Triton" href="../../../triton/overview.html" />
+    <link rel="prev" title="colab" href="colab.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -68,11 +68,14 @@
 <li class="toctree-l3"><a class="reference internal" href="../online-transducer/index.html">Online transducer models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../offline-transducer/index.html">Offline transducer models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../offline-paraformer/index.html">Offline paraformer models</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Offline CTC models</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nemo/index.html">NeMo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../offline-ctc/index.html">Offline CTC models</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Whisper</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="export-onnx.html">Export Whisper to ONNX</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tiny.en.html">tiny.en</a></li>
+<li class="toctree-l4"><a class="reference internal" href="colab.html">colab</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Huggingface space</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="../whisper/index.html">Whisper</a></li>
 </ul>
 </li>
 </ul>
@@ -99,9 +102,10 @@
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">sherpa-onnx</a> &raquo;</li>
           <li><a href="../index.html">Pre-trained models</a> &raquo;</li>
-      <li>Offline CTC models</li>
+          <li><a href="index.html">Whisper</a> &raquo;</li>
+      <li>Huggingface space</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/onnx/pretrained_models/offline-ctc/index.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/onnx/pretrained_models/whisper/huggingface.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -109,54 +113,22 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="offline-ctc-models">
-<h1>Offline CTC models<a class="headerlink" href="#offline-ctc-models" title="Permalink to this headline"></a></h1>
-<p>This section lists available offline CTC models.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="nemo/index.html">NeMo</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="nemo/how-to-export.html">How to export models from NeMo to sherpa-onnx</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nemo/how-to-export.html#step-1-export-model-onnx">Step 1: Export model.onnx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/how-to-export.html#step-2-add-metadata">Step 2: Add metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/how-to-export.html#step-3-obtain-model-int8-onnx">Step 3: Obtain model.int8.onnx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/how-to-export.html#step-4-obtain-tokens-txt">Step 4: Obtain tokens.txt</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="nemo/english.html">English</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="nemo/english.html#stt-en-citrinet-512">stt_en_citrinet_512</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#download-the-model">Download the model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#decode-wave-files">Decode wave files</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/english.html#stt-en-conformer-ctc-small">stt_en_conformer_ctc_small</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id1">Download the model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id2">Decode wave files</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/english.html#stt-en-conformer-ctc-medium">stt_en_conformer_ctc_medium</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id3">Download the model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id4">Decode wave files</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="nemo/english.html#stt-en-conformer-ctc-large">stt_en_conformer_ctc_large</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id5">Download the model</a></li>
-<li class="toctree-l4"><a class="reference internal" href="nemo/english.html#id6">Decode wave files</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
+  <section id="huggingface-space">
+<h1>Huggingface space<a class="headerlink" href="#huggingface-space" title="Permalink to this headline"></a></h1>
+<p>You can try <a class="reference external" href="https://github.com/openai/whisper/">Whisper</a> models from within your browser without installing anything.</p>
+<p>Please visit</p>
+<blockquote>
+<div><p><a class="reference external" href="https://huggingface.co/spaces/k2-fsa/automatic-speech-recognition">https://huggingface.co/spaces/k2-fsa/automatic-speech-recognition</a></p>
+</div></blockquote>
+<a class="reference internal image-reference" href="../../../_images/whisper-hf.png"><img alt="screenshot of using whisper with sherpa-onnx" src="../../../_images/whisper-hf.png" style="width: 600px;" /></a>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../offline-paraformer/paraformer-models.html" class="btn btn-neutral float-left" title="Paraformer models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="nemo/index.html" class="btn btn-neutral float-right" title="NeMo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="colab.html" class="btn btn-neutral float-left" title="colab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../triton/overview.html" class="btn btn-neutral float-right" title="Triton" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
