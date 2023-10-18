@@ -20,7 +20,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Triton" href="../../../triton/overview.html" />
+    <link rel="next" title="Frequently Asked Question (FAQs)" href="../faq.html" />
     <link rel="prev" title="Pre-trained models" href="index.html" /> 
 </head>
 
@@ -74,6 +74,7 @@
 <li class="toctree-l4 current"><a class="current reference internal" href="#">vits</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="../faq.html">Frequently Asked Question (FAQs)</a></li>
 </ul>
 </li>
 </ul>
@@ -413,6 +414,186 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
   </tr>
 </table></section>
 </section>
+<section id="aishell3-chinese-multi-speaker-174-speakers">
+<h2>aishell3 (Chinese, multi-speaker, 174 speakers)<a class="headerlink" href="#aishell3-chinese-multi-speaker-174-speakers" title="Permalink to this headline"></a></h2>
+<p>This model is converted from <a class="reference external" href="https://huggingface.co/jackyqs/vits-aishell3-175-chinese">https://huggingface.co/jackyqs/vits-aishell3-175-chinese</a>,
+which is trained on the aishell3 dataset. It supports only Chinese and it’s a multi-speaker model.
+It contains 174 speakers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you are interested in how the model is converted, please see
+<a class="reference external" href="https://github.com/csukuangfj/vits_chinese/blob/master/export_onnx_aishell3.py">https://github.com/csukuangfj/vits_chinese/blob/master/export_onnx_aishell3.py</a></p>
+</div>
+<p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
+<section id="id5">
+<h3>Download the model<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<p>Please use the following commands to download it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/vits-zh-aishell3
+<span class="nb">cd</span><span class="w"> </span>vits-zh-aishell3
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;.*onnx&quot;</span>
+</pre></div>
+</div>
+<p>Please check that the file sizes of the pre-trained models are correct. See
+the file sizes of <code class="docutils literal notranslate"><span class="pre">*.onnx</span></code> files below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vits-zh-aishell3<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>37M<span class="w"> </span>Oct<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:01<span class="w"> </span>vits-aishell3.int8.onnx
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>116M<span class="w"> </span>Oct<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:01<span class="w"> </span>vits-aishell3.onnx
+</pre></div>
+</div>
+</section>
+<section id="id6">
+<h3>Generate speech with executable compiled from C++<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<p>Since there are 174 speakers available, we can choose a speaker from 0 to 173.
+The default speaker ID is 0.</p>
+<p>We use speaker ID 10, 33, and 99 below to generate audio for the same text.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sid<span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-filename<span class="o">=</span>./liliana-10.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
+
+./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sid<span class="o">=</span><span class="m">33</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-filename<span class="o">=</span>./liliana-33.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
+
+./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sid<span class="o">=</span><span class="m">99</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-filename<span class="o">=</span>./liliana-99.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
+</pre></div>
+</div>
+<p>It will generate 3 files: <code class="docutils literal notranslate"><span class="pre">liliana-10.wav</span></code>, <code class="docutils literal notranslate"><span class="pre">liliana-33.wav</span></code>, and <code class="docutils literal notranslate"><span class="pre">liliana-99.wav</span></code>.</p>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+    <th>Text</th>
+  </tr>
+  <tr>
+    <td>liliana-10.wav</td>
+    <td>
+     <audio title="Generated ./liliana-10.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/liliana-10.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      林美丽最美丽、最漂亮、最可爱！
+    </td>
+  </tr>
+  <tr>
+    <td>liliana-33.wav</td>
+    <td>
+     <audio title="Generated ./liliana-33.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/liliana-33.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      林美丽最美丽、最漂亮、最可爱！
+    </td>
+  </tr>
+  <tr>
+    <td>liliana-99.wav</td>
+    <td>
+     <audio title="Generated ./liliana-99.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/liliana-99.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      林美丽最美丽、最漂亮、最可爱！
+    </td>
+  </tr>
+</table></section>
+<section id="id7">
+<h3>Generate speech with Python script<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
+<p>We use speaker ID 21, 41, and 45 below to generate audio for different transcripts.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--sid<span class="o">=</span><span class="m">21</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output-filename<span class="o">=</span>./liubei-21.wav<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="s2">&quot;勿以恶小而为之，勿以善小而不为。惟贤惟德，能服于人。&quot;</span>
+
+python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--sid<span class="o">=</span><span class="m">41</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output-filename<span class="o">=</span>./demokelite-41.wav<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="s2">&quot;要留心，即使当你独自一人时，也不要说坏话或做坏事，而要学得在你自己面前比在别人面前更知耻。&quot;</span>
+
+python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--sid<span class="o">=</span><span class="m">45</span><span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output-filename<span class="o">=</span>./zhugeliang-45.wav<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="s2">&quot;夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。&quot;</span>
+</pre></div>
+</div>
+<p>It will generate 3 files: <code class="docutils literal notranslate"><span class="pre">liubei-21.wav</span></code>, <code class="docutils literal notranslate"><span class="pre">demokelite-41.wav</span></code>, and <code class="docutils literal notranslate"><span class="pre">zhugeliang-45.wav</span></code>.</p>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+    <th>Text</th>
+  </tr>
+  <tr>
+    <td>liube-21.wav</td>
+    <td>
+     <audio title="Generated ./liubei-21.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/liubei-21.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      勿以恶小而为之，勿以善小而不为。惟贤惟德，能服于人。
+    </td>
+  </tr>
+  <tr>
+    <td>demokelite-41.wav</td>
+    <td>
+     <audio title="Generated ./demokelite-41.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/demokelite-41.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      要留心，即使当你独自一人时，也不要说坏话或做坏事，而要学得在你自己面前比在别人面前更知耻。
+    </td>
+  </tr>
+  <tr>
+    <td>zhugeliang-45.wav</td>
+    <td>
+     <audio title="Generated ./zhugeliang-45.wav" controls="controls">
+           <source src="/sherpa/_static/vits-zh-aishell3/zhugeliang-45.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。
+    </td>
+  </tr>
+</table></section>
+</section>
 </section>
 
 
@@ -420,7 +601,7 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Pre-trained models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../../triton/overview.html" class="btn btn-neutral float-right" title="Triton" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../faq.html" class="btn btn-neutral float-right" title="Frequently Asked Question (FAQs)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
