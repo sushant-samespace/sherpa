@@ -269,7 +269,7 @@ the file sizes of <code class="docutils literal notranslate"><span class="pre">*
 <p>Since there are 109 speakers available, we can choose a speaker from 0 to 198.
 The default speaker ID is 0.</p>
 <p>We use speaker ID 0, 10, and 108 below to generate audio for the same text.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 ./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--vits-model<span class="o">=</span>./vits-vctk/vits-vctk.onnx<span class="w"> </span><span class="se">\</span>
@@ -449,7 +449,7 @@ the file sizes of <code class="docutils literal notranslate"><span class="pre">*
 <p>Since there are 174 speakers available, we can choose a speaker from 0 to 173.
 The default speaker ID is 0.</p>
 <p>We use speaker ID 10, 33, and 99 below to generate audio for the same text.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 ./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
@@ -591,6 +591,125 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
     </td>
     <td>
       夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。
+    </td>
+  </tr>
+</table></section>
+</section>
+<section id="lessac-blizzard2013-medium-english-single-speaker">
+<h2>lessac_blizzard2013-medium (English, single-speaker)<a class="headerlink" href="#lessac-blizzard2013-medium-english-single-speaker" title="Permalink to this headline"></a></h2>
+<p>This model is converted from <a class="reference external" href="https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/lessac/medium">https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/lessac/medium</a>.
+You can find the colab notebook for the conversion at the following addres <a class="reference external" href="https://colab.research.google.com/drive/1PScLJV3sbUUAOiptLO7Ixlzh9XnWWoYZ?usp=sharing">https://colab.research.google.com/drive/1PScLJV3sbUUAOiptLO7Ixlzh9XnWWoYZ?usp=sharing</a></p>
+<p>The dataset used to train the model can be found at
+<a class="reference external" href="https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/">https://www.cstr.ed.ac.uk/projects/blizzard/2013/lessac_blizzard2013/</a>.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The model is from <a class="reference external" href="https://github.com/rhasspy/piper">piper</a>.</p>
+</div>
+<p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
+<section id="id8">
+<h3>Download the model<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<p>Please use the following commands to download it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/vits-piper-en_US-lessac-medium
+<span class="nb">cd</span><span class="w"> </span>vits-piper-en_US-lessac-medium
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;.*onnx&quot;</span>
+</pre></div>
+</div>
+<p>Please check that the file sizes of the pre-trained models are correct. See
+the file sizes of <code class="docutils literal notranslate"><span class="pre">*.onnx</span></code> files below.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vits-piper-en_US-lessac-medium<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
+
+-rw-r--r--<span class="w"> </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w"> </span>staff<span class="w"> </span>61M<span class="w"> </span>Oct<span class="w"> </span><span class="m">26</span><span class="w"> </span><span class="m">05</span>:21<span class="w"> </span>en_US-lessac-medium.onnx
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h3>Generate speech with executable compiled from C++<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-piper-en_US-lessac-medium/en_US-lessac-medium.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-piper-en_US-lessac-medium/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-piper-en_US-lessac-medium/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output-filename<span class="o">=</span>./liliana-piper-en_US-lessac-medium.wav<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;liliana, the most beautiful and lovely assistant of our team!&#39;</span>
+</pre></div>
+</div>
+<p>After running, it will generate a file <code class="docutils literal notranslate"><span class="pre">liliana-piper.wav</span></code> in the current directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>soxi<span class="w"> </span>./liliana-piper-en_US-lessac-medium.wav
+
+Input<span class="w"> </span>File<span class="w">     </span>:<span class="w"> </span><span class="s1">&#39;./liliana-piper-en_US-lessac-medium.wav&#39;</span>
+Channels<span class="w">       </span>:<span class="w"> </span><span class="m">1</span>
+Sample<span class="w"> </span>Rate<span class="w">    </span>:<span class="w"> </span><span class="m">22050</span>
+Precision<span class="w">      </span>:<span class="w"> </span><span class="m">16</span>-bit
+Duration<span class="w">       </span>:<span class="w"> </span><span class="m">00</span>:00:03.48<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">76800</span><span class="w"> </span>samples<span class="w"> </span>~<span class="w"> </span><span class="m">261</span>.224<span class="w"> </span>CDDA<span class="w"> </span>sectors
+File<span class="w"> </span>Size<span class="w">      </span>:<span class="w"> </span>154k
+Bit<span class="w"> </span>Rate<span class="w">       </span>:<span class="w"> </span>353k
+Sample<span class="w"> </span>Encoding:<span class="w"> </span><span class="m">16</span>-bit<span class="w"> </span>Signed<span class="w"> </span>Integer<span class="w"> </span>PCM
+</pre></div>
+</div>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+    <th>Text</th>
+  </tr>
+  <tr>
+    <td>liliana-piper-en_US-lessac-medium.wav</td>
+    <td>
+     <audio title="Generated ./liliana-piper-en_US-lessac-medium.wav" controls="controls">
+           <source src="/sherpa/_static/vits-piper/liliana-piper-en_US-lessac-medium.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      liliana, the most beautiful and lovely assistant of our team!
+    </td>
+  </tr>
+</table></section>
+<section id="id10">
+<h3>Generate speech with Python script<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-piper-en_US-lessac-medium/en_US-lessac-medium.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-piper-en_US-lessac-medium/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-piper-en_US-lessac-medium/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output-filename<span class="o">=</span>./liliana-piper-en_US-lessac-medium.wav<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--output-filename<span class="o">=</span>./armstrong-piper-en_US-lessac-medium.wav<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span><span class="s2">&quot;That&#39;s one small step for a man, a giant leap for mankind.&quot;</span>
+</pre></div>
+</div>
+<p>After running, it will generate a file <code class="docutils literal notranslate"><span class="pre">armstrong-piper-en_US-lessac-medium.wav</span></code> in the current directory.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>soxi<span class="w"> </span>./armstrong-piper-en_US-lessac-medium.wav
+
+Input<span class="w"> </span>File<span class="w">     </span>:<span class="w"> </span><span class="s1">&#39;./armstrong-piper-en_US-lessac-medium.wav&#39;</span>
+Channels<span class="w">       </span>:<span class="w"> </span><span class="m">1</span>
+Sample<span class="w"> </span>Rate<span class="w">    </span>:<span class="w"> </span><span class="m">22050</span>
+Precision<span class="w">      </span>:<span class="w"> </span><span class="m">16</span>-bit
+Duration<span class="w">       </span>:<span class="w"> </span><span class="m">00</span>:00:03.74<span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">82432</span><span class="w"> </span>samples<span class="w"> </span>~<span class="w"> </span><span class="m">280</span>.381<span class="w"> </span>CDDA<span class="w"> </span>sectors
+File<span class="w"> </span>Size<span class="w">      </span>:<span class="w"> </span>165k
+Bit<span class="w"> </span>Rate<span class="w">       </span>:<span class="w"> </span>353k
+Sample<span class="w"> </span>Encoding:<span class="w"> </span><span class="m">16</span>-bit<span class="w"> </span>Signed<span class="w"> </span>Integer<span class="w"> </span>PCM
+</pre></div>
+</div>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+    <th>Text</th>
+  </tr>
+  <tr>
+    <td>armstrong-piper-en_US-lessac-medium.wav</td>
+    <td>
+     <audio title="Generated ./armstrong-piper-en_US-lessac-medium.wav" controls="controls">
+           <source src="/sherpa/_static/vits-piper/armstrong-piper-en_US-lessac-medium.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+    <td>
+      That's one small step for a man, a giant leap for mankind.
     </td>
   </tr>
 </table></section>
