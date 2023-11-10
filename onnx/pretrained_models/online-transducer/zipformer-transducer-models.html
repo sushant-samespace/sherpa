@@ -17,6 +17,7 @@
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/tabs.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
@@ -502,13 +503,22 @@ microphone if <code class="docutils literal notranslate"><span class="pre">sherp
 <section id="id11">
 <h3>Download the model<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">Huggingface</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">ModelScope</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 <span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-en-2023-02-21
 <span class="nb">cd</span><span class="w"> </span>sherpa-onnx-streaming-zipformer-en-2023-02-21
 git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://www.modelscope.cn/pkufool/sherpa-onnx-streaming-zipformer-en-2023-02-21.git
+<span class="nb">cd</span><span class="w"> </span>sherpa-onnx-streaming-zipformer-en-2023-02-21
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
+</pre></div>
+</div>
+</div></div>
 <p>Please check that the file sizes of the pre-trained models are correct. See
 the file sizes of <code class="docutils literal notranslate"><span class="pre">*.onnx</span></code> files below.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sherpa-onnx-streaming-zipformer-en-2023-02-21$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
@@ -628,13 +638,22 @@ and is trained on tens of thousands of some internal dataset.</p>
 <section id="id16">
 <h3>Download the model<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h3>
 <p>Please use the following commands to download it.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">Huggingface</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">ModelScope</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 <span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 <span class="nb">cd</span><span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
 git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
 </pre></div>
 </div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
+
+<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://www.modelscope.cn/pkufool/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.git
+<span class="nb">cd</span><span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
+git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
+</pre></div>
+</div>
+</div></div>
 <p>Please check that the file sizes of the pre-trained models are correct. See
 the file sizes of <code class="docutils literal notranslate"><span class="pre">*.onnx</span></code> files below.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
