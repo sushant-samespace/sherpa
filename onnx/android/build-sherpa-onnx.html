@@ -118,6 +118,39 @@
              
   <section id="build-sherpa-onnx-for-android">
 <span id="sherpa-onnx-install-android-studio"></span><h1>Build sherpa-onnx for Android<a class="headerlink" href="#build-sherpa-onnx-for-android" title="Permalink to this headline"></a></h1>
+<p>You can use this section for both <code class="docutils literal notranslate"><span class="pre">speech-to-text</span></code> (STT, ASR)
+and <code class="docutils literal notranslate"><span class="pre">text-to-speech</span></code> (TTS).</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The build scripts mentioned in this section run on both Linux and macOS.</p>
+<p>If you are using Windows or if you don’t want to build the shared libraries,
+you can download pre-built shared libraries by visiting the release page
+<a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/releases/">https://github.com/k2-fsa/sherpa-onnx/releases/</a></p>
+<p>For instance, for the relase <code class="docutils literal notranslate"><span class="pre">v1.9.0</span></code>, you can visit
+<a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/releases/tag/v1.9.0">https://github.com/k2-fsa/sherpa-onnx/releases/tag/v1.9.0</a>
+and download the file <code class="docutils literal notranslate"><span class="pre">sherpa-onnx-v1.9.0-android.tar.bz2</span></code>
+using the following command:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/v1.9.0/sherpa-onnx-v1.9.0-android.tar.bz2
+</pre></div>
+</div>
+</div></blockquote>
+<p>Please always use the latest release.</p>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This section is originally written for speech-to-text. However, it is
+also applicable to other folders in <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/tree/master/android">https://github.com/k2-fsa/sherpa-onnx/tree/master/android</a>.</p>
+<p>For instance, you can replace <code class="docutils literal notranslate"><span class="pre">SherpaOnnx</span></code> in this section with</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SherpaOnnx2Pass</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SherpaOnnxTts</span></code>  (this is for text-to-speech)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SherpaOnnxVad</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SherpaOnnxVadAsr</span></code></p></li>
+</ul>
+</div></blockquote>
+</div>
 <section id="install-android-studio">
 <h2>Install Android Studio<a class="headerlink" href="#install-android-studio" title="Permalink to this headline"></a></h2>
 <p>The first step is to download and install Android Studio.</p>
@@ -251,6 +284,12 @@ most common one.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/so-libs-for-arm64-v8a1.png"><img alt="Generated shared libraries for arm64-v8a" src="../../_images/so-libs-for-arm64-v8a1.png" style="width: 600px;" /></a>
 </figure>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You may see more files than it is shown in the screenshot. That is totally fine
+since we are extending <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>. The first thing to remember is to always
+use the wildcard <code class="docutils literal notranslate"><span class="pre">lib*.so</span></code> in the <code class="docutils literal notranslate"><span class="pre">cp</span></code> command.</p>
+</div>
 </section>
 <section id="build-for-armv7-eabi">
 <h3>Build for armv7-eabi<a class="headerlink" href="#build-for-armv7-eabi" title="Permalink to this headline"></a></h3>
@@ -396,6 +435,9 @@ size of the library is somewhat a bit larger.</p>
 </div></blockquote>
 <p>Please refer to <a class="reference external" href="https://onnxruntime.ai/docs/build/custom.html">https://onnxruntime.ai/docs/build/custom.html</a> for a
 custom build to reduce the file size of <code class="docutils literal notranslate"><span class="pre">libonnxruntime.so</span></code>.</p>
+<p>Note that we are constantly updating the version of <code class="docutils literal notranslate"><span class="pre">onnxruntime</span></code>. By
+the time you are reading this section, we may be using the latest version
+of <code class="docutils literal notranslate"><span class="pre">onnxruntime</span></code>.</p>
 </div>
 <div class="admonition hint">
 <p class="admonition-title">Hint</p>
