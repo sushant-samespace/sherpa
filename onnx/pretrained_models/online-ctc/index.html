@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>All models from WeNet &mdash; sherpa 1.3 documentation</title>
+  <title>Online CTC models &mdash; sherpa 1.3 documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
@@ -20,8 +20,8 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Small models" href="../small-online-models.html" />
-    <link rel="prev" title="How to export models from WeNet to sherpa-onnx" href="how-to-export.html" /> 
+    <link rel="next" title="Zipformer-CTC-based Models" href="zipformer-ctc-models.html" />
+    <link rel="prev" title="Paraformer models" href="../online-paraformer/paraformer-models.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -71,16 +71,15 @@
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">Pre-trained models</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="../online-transducer/index.html">Online transducer models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../online-paraformer/index.html">Online paraformer models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../online-ctc/index.html">Online CTC models</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Online CTC models</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zipformer-ctc-models.html">Zipformer-CTC-based Models</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="../offline-transducer/index.html">Offline transducer models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../offline-paraformer/index.html">Offline paraformer models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../offline-ctc/index.html">Offline CTC models</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../whisper/index.html">Whisper</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="index.html">WeNet</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="how-to-export.html">How to export models from WeNet to sherpa-onnx</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">All models from WeNet</a></li>
-</ul>
-</li>
+<li class="toctree-l3"><a class="reference internal" href="../wenet/index.html">WeNet</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../small-online-models.html">Small models</a></li>
 </ul>
 </li>
@@ -109,10 +108,9 @@
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../../index.html">sherpa-onnx</a> &raquo;</li>
           <li><a href="../index.html">Pre-trained models</a> &raquo;</li>
-          <li><a href="index.html">WeNet</a> &raquo;</li>
-      <li>All models from WeNet</li>
+      <li>Online CTC models</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/onnx/pretrained_models/wenet/all-models.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/onnx/pretrained_models/online-ctc/index.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -120,49 +118,34 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="all-models-from-wenet">
-<h1>All models from WeNet<a class="headerlink" href="#all-models-from-wenet" title="Permalink to this headline"></a></h1>
-<p><a class="reference external" href="https://github.com/wenet-e2e/wenet/blob/main/docs/pretrained_models.en.md">https://github.com/wenet-e2e/wenet/blob/main/docs/pretrained_models.en.md</a>
-lists all pre-trained models from <a class="reference external" href="https://github.com/wenet-e2e/wenet">WeNet</a> and we have converted all of them
-to <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a> using the following script:</p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/wenet/run.sh">https://github.com/k2-fsa/sherpa-onnx/blob/master/scripts/wenet/run.sh</a>.</p>
-</div></blockquote>
-<p>We have uploaded the exported models to huggingface and you can find them from
-the following figure:</p>
-<blockquote>
-<div><figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="../../../_images/wenet-models-onnx-list.jpg"><img alt="All pretrained models from `WeNet`" src="../../../_images/wenet-models-onnx-list.jpg" style="width: 600px;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 64 </span><span class="caption-text">All pre-trained models from <a class="reference external" href="https://github.com/wenet-e2e/wenet">WeNet</a>.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
-</figcaption>
-</figure>
-</div></blockquote>
-<p>To make it easier to copy the links, we list them below:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-aishell">https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-aishell</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-aishell2">https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-aishell2</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-en-wenet-gigaspeech">https://huggingface.co/csukuangfj/sherpa-onnx-en-wenet-gigaspeech</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-en-wenet-librispeech">https://huggingface.co/csukuangfj/sherpa-onnx-en-wenet-librispeech</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-multi-cn">https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-multi-cn</a></p></li>
-<li><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-wenetspeech">https://huggingface.co/csukuangfj/sherpa-onnx-zh-wenet-wenetspeech</a></p></li>
+  <section id="online-ctc-models">
+<span id="onnx-online-ctc-models"></span><h1>Online CTC models<a class="headerlink" href="#online-ctc-models" title="Permalink to this headline"></a></h1>
+<p>This section lists available online CTC models.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="zipformer-ctc-models.html">Zipformer-CTC-based Models</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="zipformer-ctc-models.html#sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13-chinese">sherpa-onnx-streaming-zipformer-ctc-multi-zh-hans-2023-12-13 (Chinese)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="zipformer-ctc-models.html#download-the-model">Download the model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zipformer-ctc-models.html#decode-a-single-wave-file">Decode a single wave file</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="zipformer-ctc-models.html#fp32">fp32</a></li>
+<li class="toctree-l4"><a class="reference internal" href="zipformer-ctc-models.html#int8">int8</a></li>
 </ul>
-</div></blockquote>
-<section id="colab">
-<h2>Colab<a class="headerlink" href="#colab" title="Permalink to this headline"></a></h2>
-<p>We provide a colab notebook
-<a class="reference external" href="https://github.com/k2-fsa/colab/blob/master/sherpa-onnx/sherpa_onnx_with_models_from_wenet.ipynb"><img alt="Sherpa-onnx wenet ctc colab notebook" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
-for you to try the exported <a class="reference external" href="https://github.com/wenet-e2e/wenet">WeNet</a> models with <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
-</section>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="zipformer-ctc-models.html#real-time-speech-recognition-from-a-microphone">Real-time speech recognition from a microphone</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="how-to-export.html" class="btn btn-neutral float-left" title="How to export models from WeNet to sherpa-onnx" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../small-online-models.html" class="btn btn-neutral float-right" title="Small models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../online-paraformer/paraformer-models.html" class="btn btn-neutral float-left" title="Paraformer models" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="zipformer-ctc-models.html" class="btn btn-neutral float-right" title="Zipformer-CTC-based Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
