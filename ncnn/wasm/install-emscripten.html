@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Video demos &mdash; sherpa 1.3 documentation</title>
+  <title>Install Emscripten &mdash; sherpa 1.3 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/tabs.css" type="text/css" />
@@ -21,8 +21,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Build sherpa-ncnn for Android" href="build-sherpa-ncnn.html" />
-    <link rel="prev" title="Android" href="index.html" /> 
+    <link rel="next" title="Build" href="build.html" />
+    <link rel="prev" title="WebAssembly" href="index.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -58,20 +58,16 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html">sherpa-ncnn</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../install/index.html">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../python/index.html">Python API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../wasm/index.html">WebAssembly</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">WebAssembly</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Install Emscripten</a></li>
+<li class="toctree-l3"><a class="reference internal" href="build.html">Build</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prebuilt.html">Use pre-built WebAssembly library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="hf-spaces.html">Huggingface Spaces (WebAssembly)</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="../c-api/index.html">C API</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../endpoint.html">Endpointing</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="index.html">Android</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Video demos</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#video-1-chinese">Video 1: Chinese</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#video-2-chinese-english">Video 2: Chinese + English</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#video-3-chinese-with-background-noise">Video 3: Chinese with background noise</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#video-4-chinese-poem-with-background-music">Video 4: Chinese poem with background music</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="build-sherpa-ncnn.html">Build sherpa-ncnn for Android</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="../android/index.html">Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ios/index.html">iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../pretrained_models/index.html">Pre-trained models</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/index.html">Examples</a></li>
@@ -103,10 +99,10 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
           <li><a href="../index.html">sherpa-ncnn</a> &raquo;</li>
-          <li><a href="index.html">Android</a> &raquo;</li>
-      <li>Video demos</li>
+          <li><a href="index.html">WebAssembly</a> &raquo;</li>
+      <li>Install Emscripten</li>
       <li class="wy-breadcrumbs-aside">
-              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/ncnn/android/demo-videos.rst" class="fa fa-github"> Edit on GitHub</a>
+              <a href="https://github.com/k2-fsa/sherpa/blob/master/docs/source/ncnn/wasm/install-emscripten.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
   </ul>
   <hr/>
@@ -114,48 +110,45 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="video-demos">
-<span id="sherpa-ncnn-android-video-demos"></span><h1>Video demos<a class="headerlink" href="#video-demos" title="Permalink to this heading"></a></h1>
-<p>In this page, we list some videos about using <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a> for
-real-time speech recognition on Android.</p>
-<div class="admonition hint">
-<p class="admonition-title">Hint</p>
-<p>You can find pre-built <code class="docutils literal notranslate"><span class="pre">APK</span></code> packages used by the following videos at:</p>
-<blockquote>
-<div><p><a class="reference external" href="https://huggingface.co/csukuangfj/sherpa-ncnn-apk/tree/main">https://huggingface.co/csukuangfj/sherpa-ncnn-apk/tree/main</a></p>
-</div></blockquote>
-<ul class="simple">
-<li><p>CPU versions require <code class="docutils literal notranslate"><span class="pre">Android</span> <span class="pre">&gt;=</span> <span class="pre">5.0</span></code></p></li>
-<li><p>GPU versions with <code class="docutils literal notranslate"><span class="pre">Vulkan</span></code> require <code class="docutils literal notranslate"><span class="pre">Android</span> <span class="pre">&gt;=</span> <span class="pre">7.0</span></code></p></li>
-</ul>
+  <section id="install-emscripten">
+<h1>Install Emscripten<a class="headerlink" href="#install-emscripten" title="Permalink to this heading"></a></h1>
+<p>We need to compile the C/C++ files in <a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn">sherpa-ncnn</a> with the help of
+<a class="reference external" href="https://emscripten.org/index.html">emscripten</a>.</p>
+<p>Please refer to <a class="reference external" href="https://emscripten.org/docs/getting_started/downloads">https://emscripten.org/docs/getting_started/downloads</a>
+for detailed installation instructions.</p>
+<p>The following is an example to show you how to install it on Linux/macOS.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/emscripten-core/emsdk.git
+<span class="nb">cd</span><span class="w"> </span>emsdk
+git<span class="w"> </span>pull
+./emsdk<span class="w"> </span>install<span class="w"> </span>latest
+./emsdk<span class="w"> </span>activate<span class="w"> </span>latest
+<span class="nb">source</span><span class="w"> </span>./emsdk_env.sh
+</pre></div>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can also find the latest APK for each release at</p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa-ncnn/releases">https://github.com/k2-fsa/sherpa-ncnn/releases</a></p>
-</div></blockquote>
+<p>To check that you have installed <a class="reference external" href="https://emscripten.org/index.html">emscripten</a> successfully, please run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>emcc<span class="w"> </span>-v
+</pre></div>
 </div>
-<section id="video-1-chinese">
-<h2>Video 1: Chinese<a class="headerlink" href="#video-1-chinese" title="Permalink to this heading"></a></h2>
-<iframe src="//player.bilibili.com/player.html?bvid=BV1744y1Z76H&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="600"> </iframe></section>
-<section id="video-2-chinese-english">
-<h2>Video 2: Chinese + English<a class="headerlink" href="#video-2-chinese-english" title="Permalink to this heading"></a></h2>
-<iframe src="//player.bilibili.com/player.html?bvid=BV1Ge411A7XS&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="600"> </iframe></section>
-<section id="video-3-chinese-with-background-noise">
-<h2>Video 3: Chinese with background noise<a class="headerlink" href="#video-3-chinese-with-background-noise" title="Permalink to this heading"></a></h2>
-<iframe src="//player.bilibili.com/player.html?bvid=BV1GR4y167fx&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="600"> </iframe></section>
-<section id="video-4-chinese-poem-with-background-music">
-<h2>Video 4: Chinese poem with background music<a class="headerlink" href="#video-4-chinese-poem-with-background-music" title="Permalink to this heading"></a></h2>
-<iframe src="//player.bilibili.com/player.html?bvid=BV1vR4y1k7eo&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" width="600" height="600"> </iframe></section>
+<p>The above command should print something like below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.48 (e967e20b4727956a30592165a3c1cde5c67fa0a8)
+shared:INFO: (Emscripten: Running sanity checks)
+(py38) fangjuns-MacBook-Pro:open-source fangjun$ emcc -v
+emcc (Emscripten gcc/clang-like replacement + linker emulating GNU ld) 3.1.48 (e967e20b4727956a30592165a3c1cde5c67fa0a8)
+clang version 18.0.0 (https://github.com/llvm/llvm-project a54545ba6514802178cf7cf1c1dd9f7efbf3cde7)
+Target: wasm32-unknown-emscripten
+Thread model: posix
+InstalledDir: /Users/fangjun/open-source/emsdk/upstream/bin
+</pre></div>
+</div>
+<p>Congratulations! You have successfully installed <a class="reference external" href="https://emscripten.org/index.html">emscripten</a>.</p>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Android" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="build-sherpa-ncnn.html" class="btn btn-neutral float-right" title="Build sherpa-ncnn for Android" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="WebAssembly" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="build.html" class="btn btn-neutral float-right" title="Build" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
