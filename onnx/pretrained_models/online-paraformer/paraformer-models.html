@@ -132,6 +132,11 @@ before you read this section.</p>
 </div>
 <section id="csukuangfj-sherpa-onnx-streaming-paraformer-bilingual-zh-en-chinese-english">
 <span id="sherpa-onnx-online-paraformer-bilingual-zh-en"></span><h2>csukuangfj/sherpa-onnx-streaming-paraformer-bilingual-zh-en (Chinese + English)<a class="headerlink" href="#csukuangfj-sherpa-onnx-streaming-paraformer-bilingual-zh-en-chinese-english" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This model does not support timestamps. It is a bilingual model, supporting
+both Chinese and English. (支持普通话、河南话、天津话、四川话等方言)</p>
+</div>
 <p>This model is converted from</p>
 <p><a class="reference external" href="https://www.modelscope.cn/models/damo/speech_paraformer_asr_nat-zh-cn-16k-common-vocab8404-online/summary">https://www.modelscope.cn/models/damo/speech_paraformer_asr_nat-zh-cn-16k-common-vocab8404-online/summary</a></p>
 <p>The code for converting can be found at</p>
@@ -143,6 +148,10 @@ before you read this section.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
+
+<span class="c1"># For Chinese users</span>
+<span class="c1"># wget https://hub.nuaa.cf/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2</span>
+
 tar<span class="w"> </span>xvf<span class="w"> </span>sherpa-onnx-streaming-paraformer-bilingual-zh-en.tar.bz2
 </pre></div>
 </div>
@@ -260,6 +269,11 @@ microphone if <code class="docutils literal notranslate"><span class="pre">sherp
 </section>
 <section id="csukuangfj-sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en-chinese-cantonese-english">
 <span id="sherpa-onnx-online-paraformer-trilingual-zh-yue-en"></span><h2>csukuangfj/sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en (Chinese + Cantonese + English)<a class="headerlink" href="#csukuangfj-sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en-chinese-cantonese-english" title="Permalink to this heading"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This model does not support timestamps. It is a trilingual model, supporting
+both Chinese and English. (支持普通话、<code class="docutils literal notranslate"><span class="pre">粤语</span></code>、河南话、天津话、四川话等方言)</p>
+</div>
 <p>This model is converted from</p>
 <p><a class="reference external" href="https://modelscope.cn/models/dengcunqin/speech_paraformer-large_asr_nat-zh-cantonese-en-16k-vocab8501-online/files">https://modelscope.cn/models/dengcunqin/speech_paraformer-large_asr_nat-zh-cantonese-en-16k-vocab8501-online/files</a></p>
 <p>You can find the conversion code after downloading and unzipping the model.</p>
@@ -270,6 +284,10 @@ microphone if <code class="docutils literal notranslate"><span class="pre">sherp
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en.tar.bz2
+
+<span class="c1"># For Chinese users</span>
+<span class="c1"># wget https://hub.nuaa.cf/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en.tar.bz2</span>
+
 tar<span class="w"> </span>xvf<span class="w"> </span>sherpa-onnx-streaming-paraformer-trilingual-zh-cantonese-en.tar.bz2
 </pre></div>
 </div>
