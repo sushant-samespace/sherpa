@@ -63,6 +63,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../install/index.html">Installation</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Frequently Asked Question (FAQs)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">在线、离线、流式、非流式的区别</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#cannot-open-shared-library-libasound-module-conf-pulse-so">Cannot open shared library libasound_module_conf_pulse.so</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tts">TTS 中文模型没有声音</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gitcompile-line-89-libtoolize-command-not-found">./gitcompile: line 89: libtoolize: command not found</a></li>
@@ -117,6 +118,15 @@
   <section id="frequently-asked-question-faqs">
 <h1>Frequently Asked Question (FAQs)<a class="headerlink" href="#frequently-asked-question-faqs" title="Permalink to this heading"></a></h1>
 <p>This page contains frequently asked questions for <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
+<section id="id1">
+<h2>在线、离线、流式、非流式的区别<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<p>此项目中，<code class="docutils literal notranslate"><span class="pre">在线</span></code> 等同于流式，<code class="docutils literal notranslate"><span class="pre">离线</span></code> 等同于非流式。</p>
+<p><code class="docutils literal notranslate"><span class="pre">在线</span></code> 即流式，是边说边识别；响应速度快、延迟小。</p>
+<p><code class="docutils literal notranslate"><span class="pre">离线</span></code> 即非流式，是把所有待识别的数据，一次性送给模型；特点是需要
+等待所有的数据都到齐, 然后才能开始识别。</p>
+<p>不管是 <code class="docutils literal notranslate"><span class="pre">离线</span></code> 还是 <code class="docutils literal notranslate"><span class="pre">在线</span></code>, 我们这个项目，都不需要访问网络，都可以在本地
+处理；即使断网，也能正常工作。</p>
+</section>
 <section id="cannot-open-shared-library-libasound-module-conf-pulse-so">
 <h2>Cannot open shared library libasound_module_conf_pulse.so<a class="headerlink" href="#cannot-open-shared-library-libasound-module-conf-pulse-so" title="Permalink to this heading"></a></h2>
 <p>The detailed errors are given below:</p>

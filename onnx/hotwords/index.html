@@ -453,11 +453,9 @@ all support hotwords.</p>
 <p><strong>Download the model</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
-<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-onnx-zipformer-en-2023-04-01
-<span class="nb">cd</span><span class="w"> </span>sherpa-onnx-zipformer-en-2023-04-01
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;bpe.model&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>..
+wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+tar<span class="w"> </span>xvf<span class="w"> </span>sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
+rm<span class="w"> </span>sherpa-onnx-zipformer-en-2023-04-01.tar.bz2
 ln<span class="w"> </span>-s<span class="w"> </span>sherpa-onnx-zipformer-en-2023-04-01<span class="w"> </span>exp
 </pre></div>
 </div>
@@ -755,6 +753,27 @@ Real time factor (RTF): 1.810 / 20.328 = 0.089
 </pre></div>
 </div>
 <p>The output is:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Started!
+Done!
+exp-zh/test_wavs/3.wav
+文森特卡所是全球知名的法国性格派演员
+----------
+exp-zh/test_wavs/4.wav
+蒋友伯被拍到带着女儿出游
+----------
+exp-zh/test_wavs/5.wav
+周望军就落实控物价
+----------
+exp-zh/test_wavs/6.wav
+朱立南在上市见面会上表示
+----------
+num_threads: 1
+decoding_method: modified_beam_search
+Wave duration: 20.328 s
+Elapsed time: 2.653 s
+Real time factor (RTF): 2.653/20.328 = 0.131
+</pre></div>
+</div>
 <p><strong>Decoding with hotwords</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">python</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">examples</span><span class="o">/</span><span class="n">offline</span><span class="o">-</span><span class="n">decode</span><span class="o">-</span><span class="n">files</span><span class="o">.</span><span class="n">py</span> \
     <span class="o">--</span><span class="n">encoder</span> <span class="n">exp</span><span class="o">-</span><span class="n">zh</span><span class="o">/</span><span class="n">encoder</span><span class="o">-</span><span class="n">epoch</span><span class="o">-</span><span class="mi">99</span><span class="o">-</span><span class="n">avg</span><span class="o">-</span><span class="mf">1.</span><span class="n">onnx</span> \
