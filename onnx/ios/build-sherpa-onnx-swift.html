@@ -137,6 +137,26 @@
 <li><p>(Optional) iPhone or iPad. This is for testing the app on your device.
 If you don’t have a device, you can still run the app within a simulator on your Mac.</p></li>
 </ul>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<blockquote>
+<div><p>If you get the following error:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">CMake</span> <span class="n">Error</span> <span class="n">at</span> <span class="n">toolchains</span><span class="o">/</span><span class="n">ios</span><span class="o">.</span><span class="n">toolchain</span><span class="o">.</span><span class="n">cmake</span><span class="p">:</span><span class="mi">544</span> <span class="p">(</span><span class="n">get_filename_component</span><span class="p">):</span>
+  <span class="n">get_filename_component</span> <span class="n">called</span> <span class="k">with</span> <span class="n">incorrect</span> <span class="n">number</span> <span class="n">of</span> <span class="n">arguments</span>
+<span class="n">Call</span> <span class="n">Stack</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">first</span><span class="p">):</span>
+  <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">Cellar</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="mf">3.29.0</span><span class="o">/</span><span class="n">share</span><span class="o">/</span><span class="n">cmake</span><span class="o">/</span><span class="n">Modules</span><span class="o">/</span><span class="n">CMakeDetermineSystem</span><span class="o">.</span><span class="n">cmake</span><span class="p">:</span><span class="mi">146</span> <span class="p">(</span><span class="n">include</span><span class="p">)</span>
+  <span class="n">CMakeLists</span><span class="o">.</span><span class="n">txt</span><span class="p">:</span><span class="mi">2</span> <span class="p">(</span><span class="n">project</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>please run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">xcode</span><span class="o">-</span><span class="n">select</span> <span class="o">--</span><span class="n">install</span>
+<span class="n">sudo</span> <span class="n">xcodebuild</span> <span class="o">-</span><span class="n">license</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p>And then delete the build directory <code class="docutils literal notranslate"><span class="pre">./build-ios</span></code> and re-build.</p>
+<p>Please see also <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/issues/702">https://github.com/k2-fsa/sherpa-onnx/issues/702</a>.</p>
+</div>
 </section>
 <section id="download-sherpa-onnx">
 <h2>Download sherpa-onnx<a class="headerlink" href="#download-sherpa-onnx" title="Permalink to this heading"></a></h2>
