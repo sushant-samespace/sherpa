@@ -518,13 +518,21 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
 </section>
 <section id="aishell3-chinese-multi-speaker-174-speakers">
 <span id="vits-model-aishell3"></span><h2>aishell3 (Chinese, multi-speaker, 174 speakers)<a class="headerlink" href="#aishell3-chinese-multi-speaker-174-speakers" title="Permalink to this heading"></a></h2>
-<p>This model is converted from <a class="reference external" href="https://huggingface.co/jackyqs/vits-aishell3-175-chinese">https://huggingface.co/jackyqs/vits-aishell3-175-chinese</a>,
-which is trained on the <a class="reference external" href="https://www.openslr.org/93/">aishell3</a> dataset. It supports only Chinese and it’s a multi-speaker model.
-It contains 174 speakers.</p>
+<p>This model is trained on the <a class="reference external" href="https://www.openslr.org/93/">aishell3</a> dataset using <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
+<p>It supports only Chinese and it’s a multi-speaker model and contains 174 speakers.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>You can download the Android APK for this model at</p>
+<p><a class="reference external" href="https://k2-fsa.github.io/sherpa/onnx/tts/apk-engine.html">https://k2-fsa.github.io/sherpa/onnx/tts/apk-engine.html</a></p>
+<p>(Please search for <code class="docutils literal notranslate"><span class="pre">vits-icefall-zh-aishell3</span></code> in the above Android APK page)</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are interested in how the model is converted, please see
-<a class="reference external" href="https://github.com/csukuangfj/vits_chinese/blob/master/export_onnx_aishell3.py">https://github.com/csukuangfj/vits_chinese/blob/master/export_onnx_aishell3.py</a></p>
+the documentation of <a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
+<p>If you are interested in training your own model, please also refer to
+<a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a>.</p>
+<p><a class="reference external" href="https://github.com/k2-fsa/icefall">icefall</a> is also developed by us.</p>
 </div>
 <p>In the following, we describe how to download it and use it with <a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx">sherpa-onnx</a>.</p>
 <section id="id5">
@@ -532,16 +540,15 @@ It contains 174 speakers.</p>
 <p>Please use the following commands to download it.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
-<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/vits-zh-aishell3
-<span class="nb">cd</span><span class="w"> </span>vits-zh-aishell3
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
+wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-icefall-zh-aishell3.tar.bz2
+tar<span class="w"> </span>xvf<span class="w"> </span>vits-icefall-zh-aishell3.tar.bz2
+rm<span class="w"> </span>vits-icefall-zh-aishell3.tar.bz2
 </pre></div>
 </div>
 <p>Please check that the file sizes of the pre-trained models are correct. See
 the file sizes of <code class="docutils literal notranslate"><span class="pre">*.onnx</span></code> files below.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vits-zh-aishell3<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
--rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>37M<span class="w"> </span>Oct<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:01<span class="w"> </span>vits-aishell3.int8.onnx
--rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">   </span>116M<span class="w"> </span>Oct<span class="w"> </span><span class="m">18</span><span class="w"> </span><span class="m">11</span>:01<span class="w"> </span>vits-aishell3.onnx
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vits-icefall-zh-aishell3<span class="w"> </span>fangjun$<span class="w"> </span>ls<span class="w"> </span>-lh<span class="w"> </span>*.onnx
+-rw-r--r--<span class="w">  </span><span class="m">1</span><span class="w"> </span>fangjun<span class="w">  </span>staff<span class="w">    </span>29M<span class="w"> </span>Mar<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="m">22</span>:50<span class="w"> </span>model.onnx
 </pre></div>
 </div>
 </section>
@@ -553,25 +560,28 @@ The default speaker ID is 0.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 ./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sid<span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-filename<span class="o">=</span>./liliana-10.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
 
 ./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sid<span class="o">=</span><span class="m">33</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-filename<span class="o">=</span>./liliana-33.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
 
 ./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sid<span class="o">=</span><span class="m">99</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-filename<span class="o">=</span>./liliana-99.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;林美丽最美丽、最漂亮、最可爱！&quot;</span>
@@ -586,10 +596,10 @@ Currently, only number normalization is supported.</p>
 </div>
 <p>The following is an example:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./build/bin/sherpa-onnx-offline-tts<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>--tts-rule-fsts<span class="o">=</span>./vits-zh-aishell3/rule.fst<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--sid<span class="o">=</span><span class="m">66</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>--output-filename<span class="o">=</span>./rule-66.wav<span class="w"> </span><span class="se">\</span>
 <span class="w">  </span><span class="s2">&quot;35年前，他于长沙出生, 在长白山长大。9年前他当上了银行的领导，主管行政。1天前莅临我行指导工作。&quot;</span>
@@ -656,25 +666,28 @@ Currently, only number normalization is supported.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
 python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--sid<span class="o">=</span><span class="m">21</span><span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--output-filename<span class="o">=</span>./liubei-21.wav<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span><span class="s2">&quot;勿以恶小而为之，勿以善小而不为。惟贤惟德，能服于人。&quot;</span>
 
 python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--sid<span class="o">=</span><span class="m">41</span><span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--output-filename<span class="o">=</span>./demokelite-41.wav<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span><span class="s2">&quot;要留心，即使当你独自一人时，也不要说坏话或做坏事，而要学得在你自己面前比在别人面前更知耻。&quot;</span>
 
 python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--sid<span class="o">=</span><span class="m">45</span><span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--output-filename<span class="o">=</span>./zhugeliang-45.wav<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span><span class="s2">&quot;夫君子之行，静以修身，俭以养德，非淡泊无以明志，非宁静无以致远。&quot;</span>
@@ -683,13 +696,13 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
 <p>It will generate 3 files: <code class="docutils literal notranslate"><span class="pre">liubei-21.wav</span></code>, <code class="docutils literal notranslate"><span class="pre">demokelite-41.wav</span></code>, and <code class="docutils literal notranslate"><span class="pre">zhugeliang-45.wav</span></code>.</p>
 <p>The Python script also supports rule-based text normalization.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-model<span class="o">=</span>./vits-zh-aishell3/vits-aishell3.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span>--tts-rule-fsts<span class="o">=</span>./vits-zh-aishell3/rule.fst<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-model<span class="o">=</span>./vits-icefall-zh-aishell3/model.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-lexicon<span class="o">=</span>./vits-icefall-zh-aishell3/lexicon.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--vits-tokens<span class="o">=</span>./vits-icefall-zh-aishell3/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w"> </span>--tts-rule-fsts<span class="o">=</span>./vits-icefall-zh-aishell3/phone.fst,./vits-icefall-zh-aishell3/date.fst,./vits-icefall-zh-aishell3/number.fst<span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--sid<span class="o">=</span><span class="m">103</span><span class="w"> </span><span class="se">\</span>
 <span class="w"> </span>--output-filename<span class="o">=</span>./rule-103.wav<span class="w"> </span><span class="se">\</span>
-<span class="w"> </span><span class="s2">&quot;根据第7次全国人口普查结果表明，我国总人口有1443497378人。普查登记的大陆31个省、自治区、直辖市和现役军人的人口共1411778724人。&quot;</span>
+<span class="w"> </span><span class="s2">&quot;根据第7次全国人口普查结果表明，我国总人口有1443497378人。普查登记的大陆31个省、自治区、直辖市和现役军人的人口共1411778724人。电话号码是110。手机号是13812345678&quot;</span>
 </pre></div>
 </div>
 <table>
@@ -743,7 +756,7 @@ python3<span class="w"> </span>./python-api-examples/offline-tts.py<span class="
      </audio>
     </td>
     <td>
-      根据第7次全国人口普查结果表明，我国总人口有1443497378人。普查登记的大陆31个省、自治区、直辖市和现役军人的人口共1411778724人。
+      根据第7次全国人口普查结果表明，我国总人口有1443497378人。普查登记的大陆31个省、自治区、直辖市和现役军人的人口共1411778724人。电话号码是110。手机号是13812345678
     </td>
   </tr>
 </table></section>
