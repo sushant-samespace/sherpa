@@ -67,6 +67,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#cannot-open-shared-library-libasound-module-conf-pulse-so">Cannot open shared library libasound_module_conf_pulse.so</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#tts">TTS 中文模型没有声音</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#gitcompile-line-89-libtoolize-command-not-found">./gitcompile: line 89: libtoolize: command not found</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#oserror-portaudio-library-not-found">OSError: PortAudio library not found</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../python/index.html">Python</a></li>
@@ -177,6 +178,23 @@ You need to use <code class="docutils literal notranslate"><span class="pre">UTF
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libtool</span>
 </pre></div>
 </div>
+</section>
+<section id="oserror-portaudio-library-not-found">
+<h2>OSError: PortAudio library not found<a class="headerlink" href="#oserror-portaudio-library-not-found" title="Permalink to this heading"></a></h2>
+<p>If you have the following error on Linux (Ubuntu),</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Traceback<span class="w"> </span><span class="o">(</span>most<span class="w"> </span>recent<span class="w"> </span>call<span class="w"> </span>last<span class="o">)</span>:
+<span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;/mnt/sdb/shared/sherpa-onnx/./python-api-examples/vad-microphone.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">8</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+<span class="w">    </span>import<span class="w"> </span>sounddevice<span class="w"> </span>as<span class="w"> </span>sd
+<span class="w">  </span>File<span class="w"> </span><span class="s2">&quot;/mnt/sdb/shared/py311/lib/python3.11/site-packages/sounddevice.py&quot;</span>,<span class="w"> </span>line<span class="w"> </span><span class="m">71</span>,<span class="w"> </span><span class="k">in</span><span class="w"> </span>&lt;module&gt;
+<span class="w">    </span>raise<span class="w"> </span>OSError<span class="o">(</span><span class="s1">&#39;PortAudio library not found&#39;</span><span class="o">)</span>
+OSError:<span class="w"> </span>PortAudio<span class="w"> </span>library<span class="w"> </span>not<span class="w"> </span>found
+</pre></div>
+</div>
+<p>Then please run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="n">get</span> <span class="n">install</span> <span class="n">libportaudio2</span>
+</pre></div>
+</div>
+<p>and then re-try.</p>
 </section>
 </section>
 
