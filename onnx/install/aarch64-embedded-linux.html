@@ -295,16 +295,16 @@ card<span class="w"> </span><span class="m">3</span>:<span class="w"> </span>UAC
 </div></blockquote>
 <p>In this case, I only have 1 microphone. It is <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">3</span></code> and that card
 has only <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code>. To select <code class="docutils literal notranslate"><span class="pre">card</span> <span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">device</span> <span class="pre">0</span></code> on that card,
-we need to pass <code class="docutils literal notranslate"><span class="pre">hw:3,0</span></code> to <code class="docutils literal notranslate"><span class="pre">sherpa-onnx-alsa</span></code>. (Note: It has the format
-<code class="docutils literal notranslate"><span class="pre">hw:card_number,device_index</span></code>.)</p>
+we need to pass <code class="docutils literal notranslate"><span class="pre">plughw:3,0</span></code> to <code class="docutils literal notranslate"><span class="pre">sherpa-onnx-alsa</span></code>. (Note: It has the format
+<code class="docutils literal notranslate"><span class="pre">plughw:card_number,device_index</span></code>.)</p>
 <p>For instance, you have to use</p>
 <blockquote>
 <div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>./sherpa-onnx-alsa<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>hw:3,0
+<span class="w">  </span>--encoder<span class="o">=</span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/tokens.txt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--decoder<span class="o">=</span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/encoder-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--joiner<span class="o">=</span>./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/decoder-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tokens./sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20/joiner-epoch-99-avg-1.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>plughw:3,0
 </pre></div>
 </div>
 </div></blockquote>
