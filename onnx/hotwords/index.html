@@ -601,10 +601,10 @@ Real time factor (RTF): 2.463/23.340 = 0.106
 <h3>Modeling unit is cjkchar<a class="headerlink" href="#modeling-unit-is-cjkchar" title="Permalink to this heading"></a></h3>
 <p><strong>Download the model</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
-<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-onnx-conformer-zh-stateless2-2023-05-23
-<span class="nb">cd</span><span class="w"> </span>sherpa-onnx-conformer-zh-stateless2-2023-05-23
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>..
+wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+tar<span class="w"> </span>xvf<span class="w"> </span>sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+rm<span class="w"> </span>sherpa-onnx-conformer-zh-stateless2-2023-05-23.tar.bz2
+
 ln<span class="w"> </span>-s<span class="w"> </span>sherpa-onnx-conformer-zh-stateless2-2023-05-23<span class="w"> </span>exp-zh
 </pre></div>
 </div>
@@ -785,11 +785,10 @@ Real time factor (RTF): 2.636/20.328 = 0.130
 <p><strong>Download the model</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/path/to/sherpa-onnx
 
-<span class="nv">GIT_LFS_SKIP_SMUDGE</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://huggingface.co/csukuangfj/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
-<span class="nb">cd</span><span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;*.onnx&quot;</span>
-git<span class="w"> </span>lfs<span class="w"> </span>pull<span class="w"> </span>--include<span class="w"> </span><span class="s2">&quot;bpe.model&quot;</span>
-<span class="nb">cd</span><span class="w"> </span>..
+wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+tar<span class="w"> </span>xvf<span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+rm<span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20.tar.bz2
+
 ln<span class="w"> </span>-s<span class="w"> </span>sherpa-onnx-streaming-zipformer-bilingual-zh-en-2023-02-20<span class="w"> </span>exp-mixed
 </pre></div>
 </div>
