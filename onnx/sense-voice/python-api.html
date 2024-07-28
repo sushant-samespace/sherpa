@@ -163,11 +163,26 @@ the following commands:</p>
 </div>
 <p>You should see something like below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav
-{&quot;text&quot;: &quot;开饭时间早上9点至下午5点。&quot;, &quot;timestamps&quot;: [0.72, 0.96, 1.26, 1.44, 1.92, 2.10, 2.58, 2.82, 3.30, 3.90, 4.20, 4.56, 4.74, 5.46], &quot;tokens&quot;:[&quot;开&quot;, &quot;饭&quot;, &quot;时&quot;, &quot;间&quot;, &quot;早&quot;, &quot;上&quot;, &quot;9&quot;, &quot;点&quot;, &quot;至&quot;, &quot;下&quot;, &quot;午&quot;, &quot;5&quot;, &quot;点&quot;, &quot;。&quot;], &quot;words&quot;: []}
+{&quot;text&quot;: &quot;开放时间早上9点至下午5点。&quot;, &quot;timestamps&quot;: [0.72, 0.96, 1.26, 1.44, 1.92, 2.10, 2.58, 2.82, 3.30, 3.90, 4.20, 4.56, 4.74, 5.46], &quot;tokens&quot;:[&quot;开&quot;, &quot;放&quot;, &quot;时&quot;, &quot;间&quot;, &quot;早&quot;, &quot;上&quot;, &quot;9&quot;, &quot;点&quot;, &quot;至&quot;, &quot;下&quot;, &quot;午&quot;, &quot;5&quot;, &quot;点&quot;, &quot;。&quot;], &quot;words&quot;: []}
+
 (py38) fangjuns-MacBook-Pro:sherpa-onnx fangjun$ #python3 ./python-api-examples/offline-sense-voice-ctc-decode-files.py
 </pre></div>
 </div>
-<p>You can find <code class="docutils literal notranslate"><span class="pre">offline-sense-voice-ctc-decode-files.py</span></code> at the following address:</p>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td>zh.wav</td>
+    <td>
+     <audio title="zh.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/zh.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+</table><p>You can find <code class="docutils literal notranslate"><span class="pre">offline-sense-voice-ctc-decode-files.py</span></code> at the following address:</p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py">https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py</a></p>
 </div></blockquote>
@@ -803,7 +818,30 @@ python3<span class="w"> </span>./python-api-examples/non_streaming_server.py<spa
 python3<span class="w"> </span>./python-api-examples/offline-websocket-client-decode-files-sequential.py<span class="w"> </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav<span class="w">  </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
 </pre></div>
 </div>
-<p>You should see something like below on the server side:</p>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td>zh.wav</td>
+    <td>
+     <audio title="zh.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/zh.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+  <tr>
+    <td>en.wav</td>
+    <td>
+     <audio title="en.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/en.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+</table><p>You should see something like below on the server side:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:28:15,749 INFO [server.py:642] connection open
 2024-07-28 20:28:15,749 INFO [non_streaming_server.py:835] Connected: (&#39;::1&#39;, 53252, 0, 0). Number of connections: 1/200
 2024-07-28 20:28:15,933 INFO [non_streaming_server.py:851] result: 开放时间早上9点至下午5点。
@@ -828,7 +866,30 @@ The tribal chieftain called for the boy and presented him with 50 pieces of gold
 python3<span class="w"> </span>./python-api-examples/offline-websocket-client-decode-files-paralell.py<span class="w"> </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav<span class="w">  </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
 </pre></div>
 </div>
-<p>You should see something like below on the server side:</p>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td>zh.wav</td>
+    <td>
+     <audio title="zh.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/zh.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+  <tr>
+    <td>en.wav</td>
+    <td>
+     <audio title="en.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/en.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+</table><p>You should see something like below on the server side:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:31:10,147 INFO [server.py:642] connection open
 2024-07-28 20:31:10,148 INFO [non_streaming_server.py:835] Connected: (&#39;::1&#39;, 53436, 0, 0). Number of connections: 1/200
 2024-07-28 20:31:10,149 INFO [server.py:642] connection open
