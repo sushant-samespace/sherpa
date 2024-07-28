@@ -94,7 +94,9 @@
 <li class="toctree-l3"><a class="reference internal" href="dart-api.html">Dart API for SenseVoice</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Python API for SenseVoice</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#decode-a-file">Decode a file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#speech-recognition-from-a-microphone">Speech recognition from a microphone</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#generate-subtitles">Generate subtitles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#websocket-server-and-client-example">WebSocket server and client example</a></li>
 </ul>
 </li>
 </ul>
@@ -170,6 +172,40 @@ the following commands:</p>
 <div><p><a class="reference external" href="https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py">https://github.com/k2-fsa/sherpa-onnx/blob/master/python-api-examples/offline-sense-voice-ctc-decode-files.py</a></p>
 </div></blockquote>
 </section>
+<section id="speech-recognition-from-a-microphone">
+<h2>Speech recognition from a microphone<a class="headerlink" href="#speech-recognition-from-a-microphone" title="Permalink to this heading"></a></h2>
+<p>The following example shows how to use a microphone with <a class="reference external" href="https://github.com/FunAudioLLM/SenseVoice">SenseVoice</a> and <a class="reference external" href="https://github.com/snakers4/silero-vad">silero-vad</a>
+for speech recognition:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">sherpa</span><span class="o">-</span><span class="n">onnx</span>
+
+<span class="c1"># Assuem you have downloaded the SenseVoice model</span>
+
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">k2</span><span class="o">-</span><span class="n">fsa</span><span class="o">/</span><span class="n">sherpa</span><span class="o">-</span><span class="n">onnx</span><span class="o">/</span><span class="n">releases</span><span class="o">/</span><span class="n">download</span><span class="o">/</span><span class="n">asr</span><span class="o">-</span><span class="n">models</span><span class="o">/</span><span class="n">silero_vad</span><span class="o">.</span><span class="n">onnx</span>
+
+<span class="n">python3</span> <span class="o">./</span><span class="n">python</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">examples</span><span class="o">/</span><span class="n">vad</span><span class="o">-</span><span class="k">with</span><span class="o">-</span><span class="n">non</span><span class="o">-</span><span class="n">streaming</span><span class="o">-</span><span class="n">asr</span><span class="o">.</span><span class="n">py</span>  \
+  <span class="o">--</span><span class="n">silero</span><span class="o">-</span><span class="n">vad</span><span class="o">-</span><span class="n">model</span><span class="o">=./</span><span class="n">silero_vad</span><span class="o">.</span><span class="n">onnx</span> \
+  <span class="o">--</span><span class="n">sense</span><span class="o">-</span><span class="n">voice</span><span class="o">=./</span><span class="n">sherpa</span><span class="o">-</span><span class="n">onnx</span><span class="o">-</span><span class="n">sense</span><span class="o">-</span><span class="n">voice</span><span class="o">-</span><span class="n">zh</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">ja</span><span class="o">-</span><span class="n">ko</span><span class="o">-</span><span class="n">yue</span><span class="o">-</span><span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">17</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">int8</span><span class="o">.</span><span class="n">onnx</span> \
+  <span class="o">--</span><span class="n">tokens</span><span class="o">=./</span><span class="n">sherpa</span><span class="o">-</span><span class="n">onnx</span><span class="o">-</span><span class="n">sense</span><span class="o">-</span><span class="n">voice</span><span class="o">-</span><span class="n">zh</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">ja</span><span class="o">-</span><span class="n">ko</span><span class="o">-</span><span class="n">yue</span><span class="o">-</span><span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">17</span><span class="o">/</span><span class="n">tokens</span><span class="o">.</span><span class="n">txt</span> \
+  <span class="o">--</span><span class="n">num</span><span class="o">-</span><span class="n">threads</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+<p>You should see something like below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>  0 Background Music, Core Audio (2 in, 2 out)
+  1 Background Music (UI Sounds), Core Audio (2 in, 2 out)
+&gt; 2 MacBook Pro Microphone, Core Audio (1 in, 0 out)
+&lt; 3 MacBook Pro Speakers, Core Audio (0 in, 2 out)
+  4 WeMeet Audio Device, Core Audio (2 in, 2 out)
+Use default device: MacBook Pro Microphone
+Creating recognizer. Please wait...
+Started! Please speak
+</pre></div>
+</div>
+<p>If you start speaking, you should see some output after you stop speaking.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>It starts speech recognition after <a class="reference external" href="https://github.com/snakers4/silero-vad">silero-vad</a> detects a pause.</p>
+</div>
+</section>
 <section id="generate-subtitles">
 <h2>Generate subtitles<a class="headerlink" href="#generate-subtitles" title="Permalink to this heading"></a></h2>
 <p>This section describes how to use <a class="reference external" href="https://github.com/FunAudioLLM/SenseVoice">SenseVoice</a> and  <a class="reference external" href="https://github.com/snakers4/silero-vad">silero-vad</a>
@@ -178,6 +214,8 @@ to generate subtitles.</p>
 <h3>Chinese<a class="headerlink" href="#chinese" title="Permalink to this heading"></a></h3>
 <p>Test with a wave file containing Chinese:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/sherpa-onnx
+
+<span class="c1"># Assuem you have downloaded the SenseVoice model</span>
 
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/lei-jun-test.wav
@@ -498,6 +536,8 @@ python3<span class="w"> </span>./python-api-examples/generate-subtitles.py<span 
 <p>Test with a wave file containing English:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/sherpa-onnx
 
+<span class="c1"># Assuem you have downloaded the SenseVoice model</span>
+
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/silero_vad.onnx
 wget<span class="w"> </span>https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/Obama.wav
 
@@ -715,6 +755,178 @@ The future of America depends on you.
 </pre></div>
 </div>
 </div>
+</section>
+</section>
+<section id="websocket-server-and-client-example">
+<h2>WebSocket server and client example<a class="headerlink" href="#websocket-server-and-client-example" title="Permalink to this heading"></a></h2>
+<p>This example shows how to use a WebSocket server with <a class="reference external" href="https://github.com/FunAudioLLM/SenseVoice">SenseVoice</a> for speech recognition.</p>
+<section id="start-the-server">
+<h3>1. Start the server<a class="headerlink" href="#start-the-server" title="Permalink to this heading"></a></h3>
+<p>Please run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/sherpa-onnx
+
+<span class="c1"># Assuem you have downloaded the SenseVoice model</span>
+
+python3<span class="w"> </span>./python-api-examples/non_streaming_server.py<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--sense-voice<span class="o">=</span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/model.int8.onnx<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--tokens<span class="o">=</span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/tokens.txt
+</pre></div>
+</div>
+<p>You should see the following output after starting the server:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">38</span><span class="p">,</span><span class="mi">389</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">non_streaming_server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1001</span><span class="p">]</span> <span class="p">{</span><span class="s1">&#39;encoder&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;decoder&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;joiner&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;paraformer&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;sense_voice&#39;</span><span class="p">:</span> <span class="s1">&#39;./sherpa-o</span>
+<span class="n">nnx</span><span class="o">-</span><span class="n">sense</span><span class="o">-</span><span class="n">voice</span><span class="o">-</span><span class="n">zh</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">ja</span><span class="o">-</span><span class="n">ko</span><span class="o">-</span><span class="n">yue</span><span class="o">-</span><span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">17</span><span class="o">/</span><span class="n">model</span><span class="o">.</span><span class="n">int8</span><span class="o">.</span><span class="n">onnx</span><span class="s1">&#39;, &#39;</span><span class="n">nemo_ctc</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">wenet_ctc</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">tdnn_model</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">whisper_encoder</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">whisper_decod</span>
+<span class="n">er</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">whisper_language</span><span class="s1">&#39;: &#39;&#39;, &#39;</span><span class="n">whisper_task</span><span class="s1">&#39;: &#39;</span><span class="n">transcribe</span><span class="s1">&#39;, &#39;</span><span class="n">whisper_tail_paddings</span><span class="s1">&#39;: -1, &#39;</span><span class="n">tokens</span><span class="s1">&#39;: &#39;</span><span class="o">./</span><span class="n">sherpa</span><span class="o">-</span><span class="n">onnx</span><span class="o">-</span><span class="n">sense</span><span class="o">-</span><span class="n">voice</span><span class="o">-</span><span class="n">zh</span><span class="o">-</span><span class="n">en</span><span class="o">-</span><span class="n">ja</span><span class="o">-</span><span class="n">ko</span><span class="o">-</span><span class="n">yue</span><span class="o">-</span><span class="mi">2024</span>
+<span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">17</span><span class="o">/</span><span class="n">tokens</span><span class="o">.</span><span class="n">txt</span><span class="s1">&#39;, &#39;</span><span class="n">num_threads</span><span class="s1">&#39;: 2, &#39;</span><span class="n">provider</span><span class="s1">&#39;: &#39;</span><span class="n">cpu</span><span class="s1">&#39;, &#39;</span><span class="n">sample_rate</span><span class="s1">&#39;: 16000, &#39;</span><span class="n">feat_dim</span><span class="s1">&#39;: 80, &#39;</span><span class="n">decoding_method</span><span class="s1">&#39;: &#39;</span><span class="n">greedy_search</span><span class="s1">&#39;, &#39;</span><span class="n">max_active_paths</span><span class="s1">&#39;</span>
+<span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;hotwords_file&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;hotwords_score&#39;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">,</span> <span class="s1">&#39;blank_penalty&#39;</span><span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">6006</span><span class="p">,</span> <span class="s1">&#39;max_batch_size&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;max_wait_ms&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;nn_pool_size&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;max_m</span>
+<span class="n">essage_size</span><span class="s1">&#39;: 1048576, &#39;</span><span class="n">max_queue_size</span><span class="s1">&#39;: 32, &#39;</span><span class="n">max_active_connections</span><span class="s1">&#39;: 200, &#39;</span><span class="n">certificate</span><span class="s1">&#39;: None, &#39;</span><span class="n">doc_root</span><span class="s1">&#39;: &#39;</span><span class="o">./</span><span class="n">python</span><span class="o">-</span><span class="n">api</span><span class="o">-</span><span class="n">examples</span><span class="o">/</span><span class="n">web</span><span class="s1">&#39;}</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">861</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">non_streaming_server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">647</span><span class="p">]</span> <span class="n">started</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">861</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">non_streaming_server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">659</span><span class="p">]</span> <span class="n">No</span> <span class="n">certificate</span> <span class="n">provided</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">866</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">707</span><span class="p">]</span> <span class="n">server</span> <span class="n">listening</span> <span class="n">on</span> <span class="mf">0.0.0.0</span><span class="p">:</span><span class="mi">6006</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">866</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">707</span><span class="p">]</span> <span class="n">server</span> <span class="n">listening</span> <span class="n">on</span> <span class="p">[::]:</span><span class="mi">6006</span>
+<span class="mi">2024</span><span class="o">-</span><span class="mi">07</span><span class="o">-</span><span class="mi">28</span> <span class="mi">20</span><span class="p">:</span><span class="mi">22</span><span class="p">:</span><span class="mi">41</span><span class="p">,</span><span class="mi">866</span> <span class="n">INFO</span> <span class="p">[</span><span class="n">non_streaming_server</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">679</span><span class="p">]</span> <span class="n">Please</span> <span class="n">visit</span> <span class="n">one</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">addresses</span><span class="p">:</span>
+
+  <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">6006</span>
+</pre></div>
+</div>
+<p>You can either visit the address <a class="reference external" href="http://localhost:6006">http://localhost:6006</a> or write code to interact with the server.</p>
+<p>In the following, we describe possible approaches for interacting with the WebSocket server.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The WebSocket server is able to handle multiple clients/connections at the same time.</p>
+</div>
+</section>
+<section id="start-the-client-decode-files-sequentially">
+<h3>2. Start the client (decode files sequentially)<a class="headerlink" href="#start-the-client-decode-files-sequentially" title="Permalink to this heading"></a></h3>
+<p>The following code sends the files in sequential one by one to the server for decoding.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/sherpa-onnx
+
+python3<span class="w"> </span>./python-api-examples/offline-websocket-client-decode-files-sequential.py<span class="w"> </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav<span class="w">  </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
+</pre></div>
+</div>
+<p>You should see something like below on the server side:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:28:15,749 INFO [server.py:642] connection open
+2024-07-28 20:28:15,749 INFO [non_streaming_server.py:835] Connected: (&#39;::1&#39;, 53252, 0, 0). Number of connections: 1/200
+2024-07-28 20:28:15,933 INFO [non_streaming_server.py:851] result: 开放时间早上9点至下午5点。
+2024-07-28 20:28:16,194 INFO [non_streaming_server.py:851] result: The tribal chieftain called for the boy and presented him with 50 pieces of gold.
+2024-07-28 20:28:16,195 INFO [non_streaming_server.py:819] Disconnected: (&#39;::1&#39;, 53252, 0, 0). Number of connections: 0/200
+2024-07-28 20:28:16,196 INFO [server.py:260] connection closed
+</pre></div>
+</div>
+<p>You should see something like below on the client side:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:28:15,750 INFO [offline-websocket-client-decode-files-sequential.py:114] Sending ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav
+开放时间早上9点至下午5点。
+2024-07-28 20:28:15,934 INFO [offline-websocket-client-decode-files-sequential.py:114] Sending ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
+The tribal chieftain called for the boy and presented him with 50 pieces of gold.
+</pre></div>
+</div>
+</section>
+<section id="start-the-client-decode-files-in-parallel">
+<h3>3. Start the client (decode files in parallel)<a class="headerlink" href="#start-the-client-decode-files-in-parallel" title="Permalink to this heading"></a></h3>
+<p>The following code sends the files in parallel at the same time to the server for decoding.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>/tmp/sherpa-onnx
+
+python3<span class="w"> </span>./python-api-examples/offline-websocket-client-decode-files-paralell.py<span class="w"> </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav<span class="w">  </span>./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
+</pre></div>
+</div>
+<p>You should see something like below on the server side:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:31:10,147 INFO [server.py:642] connection open
+2024-07-28 20:31:10,148 INFO [non_streaming_server.py:835] Connected: (&#39;::1&#39;, 53436, 0, 0). Number of connections: 1/200
+2024-07-28 20:31:10,149 INFO [server.py:642] connection open
+2024-07-28 20:31:10,149 INFO [non_streaming_server.py:835] Connected: (&#39;::1&#39;, 53437, 0, 0). Number of connections: 2/200
+2024-07-28 20:31:10,353 INFO [non_streaming_server.py:851] result: 开放时间早上9点至下午5点。
+2024-07-28 20:31:10,354 INFO [non_streaming_server.py:819] Disconnected: (&#39;::1&#39;, 53436, 0, 0). Number of connections: 1/200
+2024-07-28 20:31:10,356 INFO [server.py:260] connection closed
+2024-07-28 20:31:10,541 INFO [non_streaming_server.py:851] result: The tribal chieftain called for the boy and presented him with 50 pieces of gold.
+2024-07-28 20:31:10,542 INFO [non_streaming_server.py:819] Disconnected: (&#39;::1&#39;, 53437, 0, 0). Number of connections: 0/200
+2024-07-28 20:31:10,544 INFO [server.py:260] connection closed
+</pre></div>
+</div>
+<p>You should see something like below on the client side:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>2024-07-28 20:31:10,112 INFO [offline-websocket-client-decode-files-paralell.py:139] {&#39;server_addr&#39;: &#39;localhost&#39;, &#39;server_port&#39;: 6006, &#39;sound_files&#39;: [&#39;./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav&#39;, &#39;./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav&#39;]}
+2024-07-28 20:31:10,148 INFO [offline-websocket-client-decode-files-paralell.py:113] Sending ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav
+2024-07-28 20:31:10,191 INFO [offline-websocket-client-decode-files-paralell.py:113] Sending ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
+2024-07-28 20:31:10,353 INFO [offline-websocket-client-decode-files-paralell.py:131] ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/zh.wav
+开放时间早上9点至下午5点。
+2024-07-28 20:31:10,542 INFO [offline-websocket-client-decode-files-paralell.py:131] ./sherpa-onnx-sense-voice-zh-en-ja-ko-yue-2024-07-17/test_wavs/en.wav
+The tribal chieftain called for the boy and presented him with 50 pieces of gold.
+</pre></div>
+</div>
+</section>
+<section id="start-the-web-browser-client">
+<h3>4. Start the  Web browser client<a class="headerlink" href="#start-the-web-browser-client" title="Permalink to this heading"></a></h3>
+<p>You can also start a browser to interact with the WebSocket server.</p>
+<p>Please visit <a class="reference external" href="http://localhost:6006">http://localhost:6006</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>We are not using a certificate to start the server, so the only
+<code class="docutils literal notranslate"><span class="pre">correct</span></code> URL is <a class="reference external" href="http://localhost:6006">http://localhost:6006</a>.</p>
+<p>All of the following addresses are <code class="docutils literal notranslate"><span class="pre">incorrect</span></code>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Incorrect/Wrong address: <a class="reference external" href="https://localhost:6006">https://localhost:6006</a></p></li>
+<li><p>Incorrect/Wrong address: <a class="reference external" href="http://127.0.0.1:6006">http://127.0.0.1:6006</a></p></li>
+<li><p>Incorrect/Wrong address: <a class="reference external" href="https://127.0.0.1:6006">https://127.0.0.1:6006</a></p></li>
+<li><p>Incorrect/Wrong address: <a class="reference external" href="http://a.b.c.d:6006">http://a.b.c.d:6006</a></p></li>
+<li><p>Incorrect/Wrong address: <a class="reference external" href="https://a.b.c.d:6006">https://a.b.c.d:6006</a></p></li>
+</ul>
+</div></blockquote>
+</div>
+<p>After starting you browser, you should see the following page:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/client-1.jpg"><img alt="../../_images/client-1.jpg" class="align-center" src="../../_images/client-1.jpg" style="width: 600px;" /></a>
+</div></blockquote>
+<section id="upload-a-file-for-recognition">
+<h4>Upload a file for recognition<a class="headerlink" href="#upload-a-file-for-recognition" title="Permalink to this heading"></a></h4>
+<p>If we click <code class="docutils literal notranslate"><span class="pre">Upload</span></code>, we will see the following page:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/client-2.jpg"><img alt="../../_images/client-2.jpg" class="align-center" src="../../_images/client-2.jpg" style="width: 600px;" /></a>
+</div></blockquote>
+<p>After clicking <code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">me</span> <span class="pre">to</span> <span class="pre">connect</span></code> and <code class="docutils literal notranslate"><span class="pre">Choose</span> <span class="pre">File</span></code>, you will
+see the recognition result returned from the server:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/client-3.jpg"><img alt="../../_images/client-3.jpg" class="align-center" src="../../_images/client-3.jpg" style="width: 600px;" /></a>
+</div></blockquote>
+</section>
+<section id="record-your-speech-with-a-microphone-for-recognition">
+<h4>Record your speech with a microphone for recognition<a class="headerlink" href="#record-your-speech-with-a-microphone-for-recognition" title="Permalink to this heading"></a></h4>
+<p>If you click <code class="docutils literal notranslate"><span class="pre">Offline-Record</span></code>, you should see the following page:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/client-4.jpg"><img alt="../../_images/client-4.jpg" class="align-center" src="../../_images/client-4.jpg" style="width: 600px;" /></a>
+</div></blockquote>
+<p>Please click the button <code class="docutils literal notranslate"><span class="pre">Click</span> <span class="pre">me</span> <span class="pre">to</span> <span class="pre">connect</span></code>, and then click the button
+<code class="docutils literal notranslate"><span class="pre">Offline-Record</span></code>, then speak, finally, click the button <code class="docutils literal notranslate"><span class="pre">Offline-Stop</span></code>;</p>
+<p>you should see the results from the server. A screenshot is given below:</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/client-5.jpg"><img alt="../../_images/client-5.jpg" class="align-center" src="../../_images/client-5.jpg" style="width: 600px;" /></a>
+</div></blockquote>
+<p>Note that you can save the recorded audio into a wave file for debugging.</p>
+<p>The recorded audio from the above screenshot is saved to <code class="docutils literal notranslate"><span class="pre">test.wav</span></code> and
+is given below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span> <span class="n">File</span>     <span class="p">:</span> <span class="s1">&#39;test.wav&#39;</span>
+<span class="n">Channels</span>       <span class="p">:</span> <span class="mi">1</span>
+<span class="n">Sample</span> <span class="n">Rate</span>    <span class="p">:</span> <span class="mi">16000</span>
+<span class="n">Precision</span>      <span class="p">:</span> <span class="mi">16</span><span class="o">-</span><span class="n">bit</span>
+<span class="n">Duration</span>       <span class="p">:</span> <span class="mi">00</span><span class="p">:</span><span class="mi">00</span><span class="p">:</span><span class="mf">07.00</span> <span class="o">=</span> <span class="mi">112012</span> <span class="n">samples</span> <span class="o">~</span> <span class="mf">525.056</span> <span class="n">CDDA</span> <span class="n">sectors</span>
+<span class="n">File</span> <span class="n">Size</span>      <span class="p">:</span> <span class="mi">224</span><span class="n">k</span>
+<span class="n">Bit</span> <span class="n">Rate</span>       <span class="p">:</span> <span class="mi">256</span><span class="n">k</span>
+<span class="n">Sample</span> <span class="n">Encoding</span><span class="p">:</span> <span class="mi">16</span><span class="o">-</span><span class="n">bit</span> <span class="n">Signed</span> <span class="n">Integer</span> <span class="n">PCM</span>
+</pre></div>
+</div>
+<table>
+  <tr>
+    <th>Wave filename</th>
+    <th>Content</th>
+  </tr>
+  <tr>
+    <td>test.wav</td>
+    <td>
+     <audio title="test.wav" controls="controls">
+           <source src="/sherpa/_static/sense-voice/python-websocket/test.wav" type="audio/wav">
+           Your browser does not support the <code>audio</code> element.
+     </audio>
+    </td>
+  </tr>
+</table></section>
 </section>
 </section>
 </section>
