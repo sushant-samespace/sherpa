@@ -25,7 +25,7 @@ In the following, we describe how to download and use it with `sherpa-onnx`_.
 Download the model
 ^^^^^^^^^^^^^^^^^^
 
-Please use the following commands to download it::
+Please use the following commands to download it:
 
 .. code-block:: bash
 
