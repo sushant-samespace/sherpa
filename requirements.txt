@@ -1,4 +1,14 @@
-websockets
-kaldifeat
-sentencepiece>=0.1.96
 numpy
+tiktoken==0.7.0
+datasets==2.20.0
+openai-whisper==20231117
+librosa==0.10.2.post1
+soundfile==0.12.1
+safetensors==0.4.3
+transformers==4.42.4
+janus==1.0.0
+onnx==1.16.1
+websockets==11.0.3
+numpy==1.26.4
+sentencepiece==0.2.0
+onnx==1.16.1
